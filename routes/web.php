@@ -15,7 +15,7 @@ Route::get('/tt', function () {
     return view('welcome');
 });
 
-Route::get("/","WebController@home");
+Route::get("/","Controller@home");
 
-Route::get("/productsdetails","WebController@productsdetails");
-Route::get("/contacts","WebController@contacts");
+Route::get("/productsdetails","Controller@productsdetails");
+Route::get("/contacts","Controller@contacts");
