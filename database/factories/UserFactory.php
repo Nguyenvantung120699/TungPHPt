@@ -41,8 +41,8 @@ $factory->define(\App\Products::class,function(Faker $faker){
         'gallery' =>$faker->imageUrl().",".$faker->imageUrl(),
         'price' =>random_int(1,1000),
         'quantity' =>random_int(1,100),
-        'category_id' =>random_int(1,100),
-        'brand_id' =>random_int(1,100),
+        'category_id' =>random_int(1,3),
+        'brand_id' =>random_int(1,5),
     ];
 });
 
