@@ -12,12 +12,12 @@
 					</button>
 					<!-- Collect the nav links, forms, and other content for toggling -->
 					<div class="collapse navbar-collapse offset" id="navbarSupportedContent">
-						<ul class="nav navbar-nav menu_nav ml-auto">
-							<li class="nav-item active"><a class="nav-link" href="/">Home</a></li>
-							@foreach(\App\Category::all() as $c )
-							<li class="nav-item"><a class="nav-link" href="{{url("{$c->id}")}}">{{$c->category_name}}</a></li>
+							<ul class="main-menu">
+							<li><a href="{{url("/")}}">Home</a></li>
+							@foreach(\App\Category::all() as $c)
+							<li><a href="{{url("/danh-muc/{$c->id}")}}">{{$c->category_name}}</a></li>
+							@endforeach
 						</ul>
-						@endforeach
 					</div>
 				</div>
 			</nav>
