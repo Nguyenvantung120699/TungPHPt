@@ -1,11 +1,6 @@
 @extends('layout')
 
 @section('content')
-			@foreach(\App\Category::all() as $c )
-			<ul>
-				<li class="nav-item"><a class="nav-link" href="{{url("{$c->id}")}}">{{$c->category_name}}</a></li>
-			</ul>
-			@endforeach
 				<!-- End Filter Bar -->
 			<section class="lattest-product-area pb-40 category-list">
 				<div class="row">
