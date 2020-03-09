@@ -3,12 +3,13 @@
 @section('content')
 				<!-- End Filter Bar -->
 			<section class="lattest-product-area pb-40 category-list">
+			<h1>{{$category->category_name}}</h1>
 				<div class="row">
-					@foreach($category as $p)
+				@foreach ($category->Products()->take(10)->get() as $p)
 							<!-- {{$loop->index}} -->
 					<div class="col-lg-4 col-md-6">
 							<div class="single-product">
-								<img class="img-fluid" src="{{ $p->thumbnail}}" alt="">
+								<img class="img-fluid" src="{{ asset($p->thumbnail) }}" alt="">
 								<div class="product-details">
 									<h6>{{ $p->product_name }}</h6>
 									<div class="price">
