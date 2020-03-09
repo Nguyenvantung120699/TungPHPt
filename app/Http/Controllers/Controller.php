@@ -31,6 +31,18 @@ class Controller extends BaseController
         return view("shop",['products'=>$products]);
     }
 
+    public function shopping($id){
+        $product = Products::find($id);
+        $product->update([
+            "quantity" => $product->quantity-1
+        ]);
+        return redirect()->to("san-pham/{$product->id}");
+    }
+
+    public function filter($c_id,$b_id){
+        $products = Products::where('category_id',$c_id)->where('brand_id',$b_id)->get();
+    }
+
 //     public function home(){
 //         //$products = Products::take(10)->orderBy('product_name','asc')->get(); // tra ve 1 collection voi moi phan tu la 1 object Product
 //         $newests = Products::orderBy('created_at','desc')->take(10)->get();
