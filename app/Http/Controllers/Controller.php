@@ -32,7 +32,7 @@ class Controller extends BaseController
              $brand_products = Products::where("brand_id",$product->brand_id)->where('id',"!=",$product->id)->take(10)->get();
              return view('productsDetails',['product'=>$product,'category_products'=>$category_products,'brand_products'=>$brand_products]);
     }
-    public function shop($id){
+    public function listing($id){
         $category = Category::find($id);
         $so_luong_sp = $category->Products()->count(); // ra so luong san pham
        // $category->Products ;// Lay tat ca product cua category nay

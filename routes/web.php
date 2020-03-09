@@ -19,4 +19,4 @@ Route::get("/","Controller@home");
 
 Route::get("/productsdetails","Controller@productsdetails");
 Route::get("/contacts","Controller@contacts");
-Route::get("/shop","Controller@shop");
+Route::get("/listing","Controller@shop");
