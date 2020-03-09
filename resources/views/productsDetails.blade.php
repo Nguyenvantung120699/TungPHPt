@@ -35,7 +35,7 @@
                     <div class="product-thumbs">
                         <div class="product-thumbs-track">
                             @foreach($gallery as $g)
-                            <div class="pt" data-imgbigurl="{{asset($g)}}"><img style="width:10%;height:auto;" src="{{asset($g)}}" alt=""></div>
+                            <div class="pt" data-imgbigurl="{{asset($g)}}"><img style="width:100%;height:auto;" src="{{asset($g)}}" alt=""></div>
                             @endforeach
                         </div>
                     </div>
@@ -52,7 +52,7 @@
 							something that can make your interior look awesome, and at the same time give you the pleasant warm feeling
 							during the winter.</p>
 
-						<p>{{$product->product_desc}}</p>
+						<!-- <p>{{$product->product_desc}}</p> -->
                         <p>Danh mục: {{$product->Category->category_name}}</p>
                         <p>Thương hiệu: {{$product->Brand->brand_name}}</p>
 						<div class="product_count">
