@@ -17,6 +17,7 @@ Route::get('/tt', function () {
 
 Route::get("/","Controller@home");
 
-Route::get("/productsdetails","Controller@productsdetails");
+Route::get("/productsdetails/{id}","Controller@productsdetails");
 Route::get("/contacts","Controller@contacts");
-Route::get("/listing","Controller@shop");
+Route::get("/listing/{id}","Controller@shop");
+Route::get("/shopping/{id}","Controller@shopping");
