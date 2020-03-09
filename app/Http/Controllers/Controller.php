@@ -21,14 +21,24 @@ class Controller extends BaseController
         }
 
     public function productsdetails(){
-        $products = Products::find(1);
-        $category_product = Products::where("category_id",$products->category_id)->where('id',"!=",$products->id)->take(10)->get();
-        $brand_product = Products::where("brand_id",$products->brand_id)->where('id',"!=",$products->id)->take(10)->get();
-        return view("productsDetails",['products'=>$products,'category_product'=>$category_product,'brand_product'=>$brand_product]);
+        // $products = Products::find(1);
+        // $category_product = Products::where("category_id",$products->category_id)->where('id',"!=",$products->id)->take(10)->get();
+        // $brand_product = Products::where("brand_id",$products->brand_id)->where('id',"!=",$products->id)->take(10)->get();
+        // return view("productsDetails",['products'=>$products,'category_product'=>$category_product,'brand_product'=>$brand_product]);
+
+        $product = Products::find($id);// tra ve 1 object Product theo id
+        //     $category = Category::find($product->category_id);
+             $category_products = Products::where("category_id",$product->category_id)->where('id',"!=",$product->id)->take(10)->get();
+             $brand_products = Products::where("brand_id",$product->brand_id)->where('id',"!=",$product->id)->take(10)->get();
+             return view('productsDetails',['product'=>$product,'category_products'=>$category_products,'brand_products'=>$brand_products]);
     }
     public function shop($id){
-        $products = Products::where("category_id",$id)->take(20)->orderBy('product_name','asc')->get();// loc theo category
-        return view("shop",['products'=>$products]);
+        $category = Category::find($id);
+        $so_luong_sp = $category->Products()->count(); // ra so luong san pham
+       // $category->Products ;// Lay tat ca product cua category nay
+        // neu muon lay 1 so luong nhat dinh 10 san pham
+       // $category->Products()->orderBy('price','desc')->take(10)->get();
+        return view("shop",['category'=>$category]);
     }
 
     public function shopping($id){

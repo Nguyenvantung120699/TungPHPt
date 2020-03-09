@@ -4,7 +4,7 @@
 				<!-- End Filter Bar -->
 			<section class="lattest-product-area pb-40 category-list">
 				<div class="row">
-					@foreach($products as $p)
+					@foreach($category as $p)
 							<!-- {{$loop->index}} -->
 					<div class="col-lg-4 col-md-6">
 							<div class="single-product">
