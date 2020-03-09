@@ -16,7 +16,7 @@
 	<!--
 		CSS
 		============================================= -->
-	<link rel="stylesheet" href="css/linearicons.css">
+	<!-- <link rel="stylesheet" href="css/linearicons.css">
 	<link rel="stylesheet" href="css/font-awesome.min.css">
 	<link rel="stylesheet" href="css/themify-icons.css">
 	<link rel="stylesheet" href="css/bootstrap.css">
@@ -38,13 +38,13 @@
 	<script src="js/nouislider.min.js"></script>
 	<script src="js/countdown.js"></script>
 	<script src="js/jquery.magnific-popup.min.js"></script>
-	<script src="js/owl.carousel.min.js"></script>
+	<script src="js/owl.carousel.min.js"></script> -->
 	<!--gmaps Js-->
-	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
+	<!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
 	<script src="js/gmaps.min.js"></script>
-	<script src="js/main.js"></script>
+	<script src="js/main.js"></script> -->
 
-	<!-- <link rel="stylesheet" href="{{asset("css/linearicons.css")}}">
+	<link rel="stylesheet" href="{{asset("css/linearicons.css")}}">
 	<link rel="stylesheet" href="{{asset("css/font-awesome.min.css")}}">
 	<link rel="stylesheet" href="{{asset("css/themify-icons.css")}}">
 	<link rel="stylesheet" href="{{asset("css/bootstrap.css")}}">
@@ -67,8 +67,8 @@
 	<script src="{{asset("js/countdown.js")}}"></script>
 	<script src="{{asset("js/jquery.magnific-popup.min.js")}}"></script>
 	<script src="{{asset("js/owl.carousel.min.js")}}"></script>
-	gmaps Js-->
-	<!-- <script src="{{asset("https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE")}}"></script>
+
+	<script src="{{asset("https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE")}}"></script>
 	<script src="{{asset("js/gmaps.min.js")}}"></script>
-	<script src="{{asset("js/main.js")}}"></script> -->
+	<script src="{{asset("js/main.js")}}"></script>
 </head>
