@@ -27,17 +27,17 @@
 			<div class="col-lg-7">
                     <figure>
                         <div class="col-md-12">
-							<img class="product-big-img" src="{{asset($product->thumbnail)}}" alt="">
+							<img style="width:100%;" class="product-big-img" src="{{asset($product->thumbnail)}}" alt="">
 						</div>
                     </figure>
                     @php
                         $gallery = $product->gallery;
                         $gallery = explode(",",$gallery);// string -> array
                     @endphp
-                    <div class="product-thumbs col-md-12">
-                        <div class="product-thumbs-track">
+                    <div class="product-thumbs row col-md-12">
+                        <div class="product-thumbs-track col-md-12">
                             @foreach($gallery as $g)
-								<div class="pt col-md-6" data-imgbigurl="{{asset($g)}}"><img src="{{asset($g)}}" alt=""></div>
+								<div class="pt col-md-6" data-imgbigurl="{{asset($g)}}"><img style="width:100%;" src="{{asset($g)}}" alt=""></div>
                             @endforeach
                         </div>
                     </div>
