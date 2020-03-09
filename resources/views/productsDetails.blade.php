@@ -24,9 +24,11 @@
 	<div class="product_image_area">
 		<div class="container">
 			<div class="row s_product_inner">
-			<div class="col-lg-4">
+			<div class="col-lg-7">
                     <figure>
-                        <img class="product-big-img" src="{{asset($product->thumbnail)}}" alt="">
+                        <div class="col-md-12">
+							<img class="product-big-img" src="{{asset($product->thumbnail)}}" alt="">
+						</div>
                     </figure>
                     @php
                         $gallery = $product->gallery;
@@ -35,14 +37,12 @@
                     <div class="product-thumbs col-md-12">
                         <div class="product-thumbs-track">
                             @foreach($gallery as $g)
-								<div class="col-md-12">
-									<div class="pt col-md-6" data-imgbigurl="{{asset($g)}}"><img src="{{asset($g)}}" alt=""></div>
-								</div>
+								<div class="pt col-md-6" data-imgbigurl="{{asset($g)}}"><img src="{{asset($g)}}" alt=""></div>
                             @endforeach
                         </div>
                     </div>
                 </div>
-				<div class="col-lg-5 offset-lg-1">
+				<div class="col-lg-5">
 					<div class="s_product_text">
 						<h3>{{$product->product_name}}</h3>
 						<h2>${{$product->price}}</h2>
