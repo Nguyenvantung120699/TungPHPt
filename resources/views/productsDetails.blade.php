@@ -21,7 +21,7 @@
 	<!-- End Banner Area -->
 
 	<!--================Single Product Area =================-->
-	<div class="product_image_area" style="padding-bottom:40%;">
+	<div class="product_image_area" style="padding-bottom:10%;">
 		<div class="container">
 			<div class="row s_product_inner">
 			<div class="col-lg-7">
@@ -34,15 +34,13 @@
                         $gallery = $product->gallery;
                         $gallery = explode(",",$gallery);// string -> array
                     @endphp
-                    <div class="product-thumbs col-md-12">
-                        <div class="product-thumbs-track row col-md-12">
-                            @foreach($gallery as $g)
-								<div class="pt col-md-6" data-imgbigurl="{{asset($g)}}">
-									<img style="width:100%;" src="{{asset($g)}}" alt="">
-								</div>
-                            @endforeach
-                        </div>
-                    </div>
+					<div class="product-thumbs-track row col-md-12">
+						@foreach($gallery as $g)
+							<div class="pt col-md-6" data-imgbigurl="{{asset($g)}}">
+								<img style="width:114%;" src="{{asset($g)}}" alt="">
+							</div>
+						@endforeach
+					</div>
                 </div>
 				<div class="col-lg-5">
 					<div class="s_product_text">
