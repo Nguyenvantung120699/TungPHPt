@@ -24,7 +24,7 @@
 	<div class="product_image_area">
 		<div class="container">
 			<div class="row s_product_inner">
-			<div class="col-lg-6">
+			<div class="col-lg-4">
                     <figure>
                         <img class="product-big-img" src="{{asset($product->thumbnail)}}" alt="">
                     </figure>
@@ -32,10 +32,12 @@
                         $gallery = $product->gallery;
                         $gallery = explode(",",$gallery);// string -> array
                     @endphp
-                    <div class="product-thumbs col-md-6">
+                    <div class="product-thumbs col-md-12">
                         <div class="product-thumbs-track">
                             @foreach($gallery as $g)
-                            <div class="pt col-md-12" data-imgbigurl="{{asset($g)}}"><img src="{{asset($g)}}" alt=""></div>
+								<div class="col-md-12">
+									<div class="pt col-md-6" data-imgbigurl="{{asset($g)}}"><img src="{{asset($g)}}" alt=""></div>
+								</div>
                             @endforeach
                         </div>
                     </div>
