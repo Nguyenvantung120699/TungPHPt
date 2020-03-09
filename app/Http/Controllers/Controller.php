@@ -20,13 +20,13 @@ class Controller extends BaseController
         return view("home",['newests'=>$newests,'cheaps'=>$cheaps,'exs'=>$exs]);
         }
 
-    public function productsdetails(){
+    public function productsdetails($id){
         // $products = Products::find(1);
         // $category_product = Products::where("category_id",$products->category_id)->where('id',"!=",$products->id)->take(10)->get();
         // $brand_product = Products::where("brand_id",$products->brand_id)->where('id',"!=",$products->id)->take(10)->get();
         // return view("productsDetails",['products'=>$products,'category_product'=>$category_product,'brand_product'=>$brand_product]);
 
-        $product = Products::find($id);// tra ve 1 object Product theo id
+            $product = Products::find($id);// tra ve 1 object Product theo id
         //     $category = Category::find($product->category_id);
              $category_products = Products::where("category_id",$product->category_id)->where('id',"!=",$product->id)->take(10)->get();
              $brand_products = Products::where("brand_id",$product->brand_id)->where('id',"!=",$product->id)->take(10)->get();
