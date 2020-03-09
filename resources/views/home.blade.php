@@ -337,7 +337,7 @@
 			<div class="row">
 				<div class="col-lg-9">
 					<div class="row">
-					@foreach($newests as $p)
+					@foreach($cheaps as $p)
 						<div class="col-lg-4 col-md-4 col-sm-6 mb-20">
 							<div class="single-related-product d-flex">
 								<a href="#"><img src="{{ $p->thumbnail}}" alt=""></a>
