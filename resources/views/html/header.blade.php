@@ -18,7 +18,7 @@
 								<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
 								 aria-expanded="false">Shop</a>
 								<ul class="dropdown-menu">
-								<li class="nav-item"><a class="nav-link" href="{{url("/listing")}}">Shop Category</a></li>
+								<li class="nav-item"><a class="nav-link" href="/listing">Shop Category</a></li>
 									<li class="nav-item active"><a class="nav-link" href="{{url("/productsdetails")}}>Product Details</a></li>
 									<li class="nav-item"><a class="nav-link" href="checkout.html">Product Checkout</a></li>
 									<li class="nav-item"><a class="nav-link" href="cart.html">Shopping Cart</a></li>
