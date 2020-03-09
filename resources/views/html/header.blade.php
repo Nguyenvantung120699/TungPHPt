@@ -13,9 +13,9 @@
 					<!-- Collect the nav links, forms, and other content for toggling -->
 					<div class="collapse navbar-collapse offset" id="navbarSupportedContent">
 							<ul class="main-menu">
-							<li><a href="{{url("/")}}">Home</a></li>
+							<li><a href="/">Home</a></li>
 							@foreach(\App\Category::all() as $c)
-							<li><a href="{{url("/danh-muc/{$c->id}")}}">{{$c->category_name}}</a></li>
+							<li><a href="{{url("{$c->id}")}}">{{$c->category_name}}</a></li>
 							@endforeach
 						</ul>
 					</div>
