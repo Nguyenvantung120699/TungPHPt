@@ -32,10 +32,10 @@
                         $gallery = $product->gallery;
                         $gallery = explode(",",$gallery);// string -> array
                     @endphp
-                    <div class="product-thumbs">
+                    <div class="product-thumbs col-md-6">
                         <div class="product-thumbs-track">
                             @foreach($gallery as $g)
-                            <div class="pt" data-imgbigurl="{{asset($g)}}"><img style="width:100%;height:auto;" src="{{asset($g)}}" alt=""></div>
+                            <div class="pt col-md-12" data-imgbigurl="{{asset($g)}}"><img src="{{asset($g)}}" alt=""></div>
                             @endforeach
                         </div>
                     </div>
