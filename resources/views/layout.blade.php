@@ -3,6 +3,7 @@
 <html lang="zxx">
 
 @include('html.head')
+@include('html.head')
 <body>
 
 	<!-- Start Header Area -->
