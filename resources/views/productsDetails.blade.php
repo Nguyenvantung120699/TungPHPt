@@ -4,7 +4,7 @@
 
 @section('content')
 
-<section class="banner-area organic-breadcrumb">
+<section class="banner-area organic-breadcrumb" style="padding-bottom:40%;">
 		<div class="container">
 			<div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">
 				<div class="col-first">
@@ -34,11 +34,11 @@
                         $gallery = $product->gallery;
                         $gallery = explode(",",$gallery);// string -> array
                     @endphp
-                    <div class="product-thumbs row col-md-12">
-                        <div class="product-thumbs-track row col-md-12">
+                    <div class="product-thumbs col-md-12">
+                        <div class="product-thumbs-track col-md-12">
                             @foreach($gallery as $g)
 								<div class="pt col-md-6" data-imgbigurl="{{asset($g)}}">
-									<img style="width:114%;" src="{{asset($g)}}" alt="">
+									<img style="width:100%;" src="{{asset($g)}}" alt="">
 								</div>
                             @endforeach
                         </div>
@@ -55,13 +55,11 @@
 						<p>Mill Oil is an innovative oil filled radiator with the most modern technology. If you are looking for
 							something that can make your interior look awesome, and at the same time give you the pleasant warm feeling
 							during the winter.</p>
-
 						<!-- <p>{{$product->product_desc}}</p> -->
                         <p>Danh mục: {{$product->Category->category_name}}</p>
                         <p>Thương hiệu: {{$product->Brand->brand_name}}</p>
+						<p>{{$product->quantity}}</p>
 						<div class="product_count">
-							<p>{{$product->quantity}}</p>
-
 							<label for="qty">Quantity:</label>
 							<input type="text" name="qty" id="sst" maxlength="12" value="1" title="Quantity:" class="input-text qty">
 							<button onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst )) result.value++;return false;"
