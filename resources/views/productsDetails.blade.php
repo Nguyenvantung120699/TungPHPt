@@ -4,7 +4,7 @@
 
 @section('content')
 
-<section class="banner-area organic-breadcrumb" style="padding-bottom:40%;">
+<section class="banner-area organic-breadcrumb">
 		<div class="container">
 			<div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">
 				<div class="col-first">
@@ -21,7 +21,7 @@
 	<!-- End Banner Area -->
 
 	<!--================Single Product Area =================-->
-	<div class="product_image_area">
+	<div class="product_image_area" style="padding-bottom:40%;">
 		<div class="container">
 			<div class="row s_product_inner">
 			<div class="col-lg-7">
@@ -34,7 +34,7 @@
                         $gallery = $product->gallery;
                         $gallery = explode(",",$gallery);// string -> array
                     @endphp
-                    <div class="product-thumbs col-md-12">
+                    <div class="product-thumbs row col-md-12">
                         <div class="product-thumbs-track col-md-12">
                             @foreach($gallery as $g)
 								<div class="pt col-md-6" data-imgbigurl="{{asset($g)}}">
