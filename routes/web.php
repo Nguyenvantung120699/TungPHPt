@@ -15,7 +15,7 @@
 //     return view('welcome');
 // });
 
-Route::get("{{url("/")}}","Controller@home");
+Route::get("/","Controller@home");
 
 Route::get("/productsdetails/{id}","Controller@productsdetails");
 Route::get("/contacts","Controller@contacts");
