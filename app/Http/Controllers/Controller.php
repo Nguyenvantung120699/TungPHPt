@@ -40,6 +40,9 @@ class Controller extends BaseController
        // $category->Products()->orderBy('price','desc')->take(10)->get();
         return view("shop",['category'=>$category]);
     }
+    public function shop(){
+        return view("shop");
+    }
 
     public function shopping($id){
         $product = Products::find($id);
