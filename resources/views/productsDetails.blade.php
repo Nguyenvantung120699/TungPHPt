@@ -37,7 +37,7 @@
                     <div class="product-thumbs row col-md-12">
                         <div class="product-thumbs-track row col-md-12">
                             @foreach($gallery as $g)
-								<div class="pt row col-md-6" data-imgbigurl="{{asset($g)}}">
+								<div class="pt col-md-12" data-imgbigurl="{{asset($g)}}">
 									<img style="width:100%;" src="{{asset($g)}}" alt="">
 								</div>
                             @endforeach
