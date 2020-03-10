@@ -58,7 +58,7 @@
 						<!-- <p>{{$product->product_desc}}</p> -->
                         <p>Danh mục: {{$product->Category->category_name}}</p>
                         <p>Thương hiệu: {{$product->Brand->brand_name}}</p>
-						<p>{{$product->quantity}}</p>
+						<p>Số Lượng: {{$product->quantity}}</p>
 						<div class="product_count">
 							<label for="qty">Quantity:</label>
 							<input type="text" name="qty" id="sst" maxlength="12" value="1" title="Quantity:" class="input-text qty">

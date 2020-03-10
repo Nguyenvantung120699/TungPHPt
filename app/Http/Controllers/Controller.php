@@ -7,6 +7,8 @@ use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
 use App\Products;
+use App\Category;
+use App\Brand;
 
 class Controller extends BaseController
 {
@@ -34,14 +36,14 @@ class Controller extends BaseController
     }
     public function listing($id){
         $category = Category::find($id);
-        $so_luong_sp = $category->Products()->count(); // ra so luong san pham
+        //$so_luong_sp = $category->Products()->count(); // ra so luong san pham
        // $category->Products ;// Lay tat ca product cua category nay
         // neu muon lay 1 so luong nhat dinh 10 san pham
        // $category->Products()->orderBy('price','desc')->take(10)->get();
-        return view("shop",['category'=>$category]);
+         return view("shop",['category'=>$category]);
     }
-    public function shop(){
-        return view("shop");
+    public function contacts(){
+        return view("contacts");
     }
 
     public function shopping($id){
