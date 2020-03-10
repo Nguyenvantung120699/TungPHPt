@@ -20,4 +20,5 @@ Route::get("/","Controller@home");
 Route::get("/productsdetails/{id}","Controller@productsdetails");
 Route::get("/contacts","Controller@contacts");
 Route::get("/listing/{id}","Controller@shop");
+Route::get("/shop","Controller@shop");
 Route::get("/shopping/{id}","Controller@shopping");
