@@ -215,7 +215,7 @@
 										</a>
 										<a href="{{url("shop/{$p->category_id}")}}" class="social-info">
 											<span class="lnr lnr-move"></span>
-											<p class="hover-text">view more</p>
+											<p class="hover-text">category more</p>
 										</a>
 									</div>
 								</div>
