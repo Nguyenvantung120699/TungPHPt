@@ -49,19 +49,21 @@
 						<h3>{{$product->product_name}}</h3>
 						<h2>${{$product->price}}</h2>
 						<ul class="list">
-							<li><a class="active" href="#"><span>Category</span> : Household</a></li>
-							<li><a href="#"><span>Availibility</span> : In Stock</a></li>
+							<li>Danh mục: {{$product->Category->category_name}}</li>
+							<li>Thương hiệu: {{$product->Brand->brand_name}}</li>
+							<li>Số Lượng: {{$product->quantity}}</li>
+							<li>
+								<div class="product_count">
+									<label for="qty">Quantity:</label>
+									<input type="text" name="qty" id="sst" maxlength="12" value="1" title="Quantity:" class="input-text qty">
+								</div>
+							</li>
 						</ul>
 						<p>Mill Oil is an innovative oil filled radiator with the most modern technology. If you are looking for
 							something that can make your interior look awesome, and at the same time give you the pleasant warm feeling
 							during the winter.</p>
 						<!-- <p>{{$product->product_desc}}</p> -->
-                        <p>Danh mục: {{$product->Category->category_name}}</p>
-                        <p>Thương hiệu: {{$product->Brand->brand_name}}</p>
-						<p>Số Lượng: {{$product->quantity}}</p>
-						<div class="product_count">
-							<label for="qty">Quantity:</label>
-							<input type="text" name="qty" id="sst" maxlength="12" value="1" title="Quantity:" class="input-text qty">
+						<div>
 							<button onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst )) result.value++;return false;"
 							 class="increase items-count" type="button"><i class="lnr lnr-chevron-up"></i></button>
 							<button onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst ) &amp;&amp; sst > 0 ) result.value--;return false;"
