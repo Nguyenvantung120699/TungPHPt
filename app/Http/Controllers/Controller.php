@@ -42,7 +42,16 @@ class Controller extends BaseController
        // $category->Products()->orderBy('price','desc')->take(10)->get();
          return view("shop",['category'=>$category]);
     }
-    public function contacts(){
+    
+    // public function listing(){
+    //     $category = Category::all();
+    //     //$so_luong_sp = $category->Products()->count(); // ra so luong san pham
+    //    // $category->Products ;// Lay tat ca product cua category nay
+    //     // neu muon lay 1 so luong nhat dinh 10 san pham
+    //    // $category->Products()->orderBy('price','desc')->take(10)->get();
+    //      return view("shop",['category'=>$category]);
+    // }
+    public function contacts($id){
         return view("contacts");
     }
 
