@@ -3,8 +3,8 @@
 @section('content')
 				<!-- End Filter Bar -->
 			<section class="lattest-product-area pb-40 category-list">
-			<h1>{{$category->category_name}}</h1>
 				<div class="row">
+				<h1>{{$category->category_name}}</h1>
 				@foreach ($category->Products()->take(10)->get() as $p)
 							<!-- {{$loop->index}} -->
 					<div class="col-lg-4 col-md-6">
