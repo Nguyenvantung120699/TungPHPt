@@ -28,7 +28,7 @@ class AdminController extends Controller
         }catch(\Exception $e){
             return redirect()->back();
         }
-        return redirect()->to("{{url('admin/category')}}");
+        return redirect()->to("admin/category");
     }
 
 
@@ -54,7 +54,7 @@ class AdminController extends Controller
         }catch(\Exception $e){
             return redirect()->back();
         }
-        return redirect()->to("{{url('admin/brand')}}");
+        return redirect()->to("admin/brand");
     }
 
     
@@ -94,6 +94,6 @@ class AdminController extends Controller
         }catch(\Exception $e){
             return redirect()->back();
         }
-        return redirect()->to("{{url('admin/product')}}");
+        return redirect()->to("admin/product");
     }
 }
