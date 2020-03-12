@@ -27,6 +27,7 @@ class AdminController extends Controller
             ]);
         }catch(\Exception $e){
             return redirect()->back();
+            echo("chưa đẩy được");
         }
         return redirect()->to("admin/category");
     }
