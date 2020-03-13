@@ -27,7 +27,6 @@ class AdminController extends Controller
             ]);
         }catch(\Exception $e){
             return redirect()->back();
-            echo("chưa đẩy được");
         }
         return redirect()->to("admin/category");
     }
@@ -54,7 +53,6 @@ class AdminController extends Controller
             ]);
         }catch(\Exception $e){
             return redirect()->back();
-            $str = "chưa đẩy được";
         }
         return redirect()->to("admin/brand");
     }
@@ -95,7 +93,6 @@ class AdminController extends Controller
             ]);
         }catch(\Exception $e){
             return redirect()->back();
-            echo("chưa đẩy được");
         }
         return redirect()->to("admin/product");
     }
