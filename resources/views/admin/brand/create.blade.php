@@ -17,6 +17,9 @@
                     <p style="color:red">{{$errors->first("brand_name")}}</p>
                  @endif
             </div>
+            <?php 
+                echo $str;
+            ?>
             <div>
                 <button class="btn btn-danger" type="submit">
                 <i class="fa fa-lock fa-lg"></i>

@@ -54,7 +54,7 @@ class AdminController extends Controller
             ]);
         }catch(\Exception $e){
             return redirect()->back();
-            echo("chưa đẩy được");
+            $str = "chưa đẩy được";
         }
         return redirect()->to("admin/brand");
     }
