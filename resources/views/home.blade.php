@@ -188,7 +188,7 @@
 					</div>
 				</div>
 				<div class="row">
-					@foreach($newests as $p)
+					@foreach($cheaps as $p)
 							<!-- {{$loop->index}} -->
 					<div class="col-lg-3 col-md-6">
 							<div class="single-product">

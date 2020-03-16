@@ -34,15 +34,14 @@ class Controller extends BaseController
              $brand_products = Products::where("brand_id",$product->brand_id)->where('id',"!=",$product->id)->take(10)->get();
              return view('productsDetails',['product'=>$product,'category_products'=>$category_products,'brand_products'=>$brand_products]);
     }
-    public function listing($id){
+    public function shop($id){
         $category = Category::find($id);
-        //$so_luong_sp = $category->Products()->count(); // ra so luong san pham
+        $so_luong_sp = $category->Products()->count(); // ra so luong san pham
        // $category->Products ;// Lay tat ca product cua category nay
         // neu muon lay 1 so luong nhat dinh 10 san pham
        // $category->Products()->orderBy('price','desc')->take(10)->get();
-         return view("shop",['category'=>$category]);
+        return view("shop",['category'=>$category]);
     }
-    
     // public function listing(){
     //     $category = Category::all();
     //     //$so_luong_sp = $category->Products()->count(); // ra so luong san pham

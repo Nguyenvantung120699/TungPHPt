@@ -22,10 +22,9 @@
 
 	<!--================Single Product Area =================-->
 	<section class="lattest-product-area pb-40 category-list">
-		<h1>{{$category->category_name}}</h1>
-		<div class="row">
-		@foreach ($category->Products()->take(9)->get() as $p)
-					<!-- {{$loop->index}} -->
+	<h1>{{$category->category_name}}</h1>
+    <div class="row">
+        @foreach ($category->Products()->take(10)->get() as $p)
 			<div class="col-lg-4 col-md-6">
 					<div class="single-product">
 						<img class="img-fluid" src="{{ asset($p->thumbnail) }}" alt="">
