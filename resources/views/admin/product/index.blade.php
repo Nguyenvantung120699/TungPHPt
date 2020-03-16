@@ -46,12 +46,16 @@
                     <td>{{$c->updated_at}}</td>
                     <td>
                         <div class="table-data-feature">
-                            <button class="item" data-toggle="tooltip" data-placement="top" title="Edit">
+                        <form action="{{url("admin/product/edit",['id'=>$c->id])}}">
+                        <button class="item" data-toggle="tooltip" data-placement="top" title="Edit">
                                 <i class="zmdi zmdi-edit"></i>
                             </button>
+                        </form>
+                        <form action="{{url("admin/product/delete",['id'=>$c->id])}}">
                             <button class="item" data-toggle="tooltip" data-placement="top" title="Delete">
                                 <i class="zmdi zmdi-delete"></i>
                             </button>
+                        </form>
                         </div>
                     </td>
                 </tr>

@@ -47,14 +47,12 @@
 				<div class="col-lg-5">
 					<div class="s_product_text">
 						<h3>{{$product->product_name}}</h3>
-						<h2>${{$product->price}}</h2>
+						<h2>{{$product->price}}</h2>
 						<ul class="list">
 							<li>Danh mục: {{$product->Category->category_name}}</li>
 							<li>Thương hiệu: {{$product->Brand->brand_name}}</li>
 
-							<p>Mill Oil is an innovative oil filled radiator with the most modern technology. If you are looking for
-							something that can make your interior look awesome, and at the same time give you the pleasant warm feeling
-							during the winter.</p>
+							<p>{{$product->product_desc}}</p>
 
 							<li><p>Số Lượng: {{$product->quantity}}</p></li>
 							<li>

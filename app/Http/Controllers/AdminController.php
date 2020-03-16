@@ -19,7 +19,7 @@ class AdminController extends Controller
 
     public function categoryStore(Request $request){
         $request->validate([
-            "category_name"=>"required"
+            "category_name"=> "required|string|unique:category"
         ]);
         try{
             Category::create([
@@ -31,6 +31,40 @@ class AdminController extends Controller
         return redirect()->to("admin/category");
     }
 
+
+    public function categoryEdit($id){
+        $categories = Category::find($id);
+        return view("admin.category.edit",['categories'=>$categories]);
+    }
+    public function categoryUpdate($id,Request $request){
+        $categories = Category::find($id);
+        $request->validate([ // truyen vao rules de validate
+            "category_name"=> "required|string|unique:category,category_name,".$id
+        ]);
+        try {
+            $categories->update([
+                "category_name"=> $request->get('category_name')
+            ]);
+        }catch (\Exception $e){
+            return redirect()->back();
+        }
+        return redirect()->to("admin/category");
+    }
+
+
+
+    public function categoryDestroy($id){
+        $categories = Category::find($id);
+        try {
+            $categories->delete(); // xoa cung // CRUD
+            // xoa mem
+            // them 1 truong status : 0: Inactive; 1: active
+            // chuyen status tu 1 -> 0
+        }catch (\Exception $e){
+            return redirect()->back();
+        }
+        return redirect()->to("admin/category");
+    }
 
 
     // ham admin brand
@@ -45,7 +79,7 @@ class AdminController extends Controller
 
     public function brandStore(Request $request){
         $request->validate([
-            "brand_name"=>"required"
+            "category_name"=> "required|string|unique:category"
         ]);
         try{
             Brand::create([
@@ -57,6 +91,40 @@ class AdminController extends Controller
         return redirect()->to("admin/brand");
     }
 
+
+    public function brandEdit($id){
+        $brands = Brand::find($id);
+        return view('admin.brand.edit',['brands'=>$brands]);
+    }
+    public function brandUpdate($id,Request $request){
+       $brands = Brand::find($id);
+       $request->validate([
+        "brand_name"=> "required|string|unique:brand,brand_name,".$id
+    ]);
+
+    try{
+        $brands->update([
+            "brand_name"=> $request->get("brand_name")
+        ]);
+    }catch(\Exception $e){
+        return redirect()->back();
+    }
+    return redirect()->to("admin/brand");
+    }
+
+
+    public function brandDestroy($id){
+        $brands = Brand::find($id);
+        try {
+            $brands->delete(); // xoa cung // CRUD
+            // xoa mem
+            // them 1 truong status : 0: Inactive; 1: active
+            // chuyen status tu 1 -> 0
+        }catch (\Exception $e){
+            return redirect()->back();
+        }
+        return redirect()->to("admin/brand");
+    }
     
     // ham admin product
     public function product(){
@@ -96,4 +164,40 @@ class AdminController extends Controller
         }
         return redirect()->to("admin/product");
     }
+
+
+    public function productEdit($id){
+        $products = Products::find($id);
+        return view('admin.product.edit',['products'=>$products]);
+    }
+    public function productUpdate($id,Request $request){
+       $products = Products::find($id);
+       $request->validate([
+        "product_name"=> "required|string|unique:products,product_name,".$id
+    ]);
+
+    try{
+        $products->update([
+            "product_name"=> $request->get("product_name")
+        ]);
+    }catch(\Exception $e){
+        return redirect()->back();
+    }
+    return redirect()->to("admin/product");
+    }
+
+
+    public function productDestroy($id){
+        $products = Products::find($id);
+        try {
+            $products->delete(); // xoa cung // CRUD
+            // xoa mem
+            // them 1 truong status : 0: Inactive; 1: active
+            // chuyen status tu 1 -> 0
+        }catch (\Exception $e){
+            return redirect()->back();
+        }
+        return redirect()->to("admin/product");
+    }
+    
 }
