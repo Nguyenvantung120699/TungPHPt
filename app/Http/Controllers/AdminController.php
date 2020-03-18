@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Category;
 use App\Brand;
 use App\Products;
+use App\User;
 
 class AdminController extends Controller
 {
@@ -79,7 +80,7 @@ class AdminController extends Controller
 
     public function brandStore(Request $request){
         $request->validate([
-            "category_name"=> "required|string|unique:category"
+            "brand_name"=> "required|string|unique:brand,brand_name"
         ]);
         try{
             Brand::create([
@@ -138,14 +139,13 @@ class AdminController extends Controller
 
     public function productStore(Request $request){
         $request->validate([
-            "product_name"=>"required",
+            "product_name"=> "required",
             "product_desc"=>"required",
             "thumbnail"=>"required",
             "gallery"=>"required",
             "category_id"=>"required",
             "brand_id"=>"required",
             "price"=>"required",
-            "quantity"=>"required"
         ]);
         try{
             Products::create([
@@ -156,7 +156,7 @@ class AdminController extends Controller
                 "category_id"=> $request->get("category_id"),
                 "brand_id"=> $request->get("brand_id"),
                 "price"=> $request->get("price"),
-                "quantity"=> $request->get("quantity")
+                "quantity"=> $request->get("quantity"),
 
             ]);
         }catch(\Exception $e){
@@ -173,12 +173,25 @@ class AdminController extends Controller
     public function productUpdate($id,Request $request){
        $products = Products::find($id);
        $request->validate([
-        "product_name"=> "required|string|unique:products,product_name,".$id
+        "product_name"=> "required|string|max:255|unique:products,product_name,".$id,
+        "product_desc"=>"required|string|max:255:products,product_desc,".$id,
+        "thumbnail"=>"required|string|max:255:products,thumbnail,".$id,
+        "gallery"=>"required|string|max:255:products,gallery,".$id,
+        "category_id"=>"required:products,category_id,".$id,
+        "brand_id"=>"required:products,brand_id,".$id,
+        "price"=>"required|Float:products,price,".$id,
     ]);
 
     try{
         $products->update([
-            "product_name"=> $request->get("product_name")
+            "product_name"=> $request->get("product_name"),
+            "product_desc"=> $request->get("product_desc"),
+            "thumbnail"=> $request->get("thumbnail"),
+            "gallery"=> $request->get("gallery"),
+            "category_id"=> $request->get("category_id"),
+            "brand_id"=> $request->get("brand_id"),
+            "price"=> $request->get("price"),
+            "quantity"=> $request->get("quantity")
         ]);
     }catch(\Exception $e){
         return redirect()->back();
@@ -198,6 +211,77 @@ class AdminController extends Controller
             return redirect()->back();
         }
         return redirect()->to("admin/product");
+    }
+
+    // ham user
+    public function user(){
+        $user = User::all();
+        return view('admin.user.index',['user'=>$user]);
+    }
+
+    public function userCreate(){
+        return view('admin.user.create');
+    }
+
+    public function userStore(Request $request){
+        $request->validate([
+            "name"=> "required|string|max:255:users,name,",
+            "email"=> "required|string|email|max:255|unique:users,email,",
+            "password"=> "required|string|min:8:users,password,",
+            "role"=> "required|Integer:users,role,",
+        ]);
+        try{
+            User::create([
+                "name"=> $request->get("name"),
+                "email"=> $request->get("email"),
+                "password"=> $request->get("password"),
+                "role"=> $request->get("role")
+            ]);
+        }catch(\Exception $e){
+            return redirect()->back();
+        }
+        return redirect()->to("admin/user");
+    }
+
+
+    public function userEdit($id){
+        $user = User::find($id);
+        return view('admin.user.edit',['user'=>$user]);
+    }
+    public function userUpdate($id,Request $request){
+       $user = User::find($id);
+       $request->validate([
+        "name"=> "required|string|max:255:users,name,".$id,
+        "email"=> "required|string|email|max:255|unique:users,email,".$id,
+        "password"=> "required|string|min:8|confirmed:users,password,".$id,
+        "role"=> "required|Integer:users,role,".$id,
+    ]);
+
+    try{
+        $user->update([
+            "name"=> $request->get("name"),
+            "email"=> $request->get("email"),
+            "password"=> $request->get("password"),
+            "role"=> $request->get("role")
+        ]);
+    }catch(\Exception $e){
+        return redirect()->back();
+    }
+    return redirect()->to("admin/user");
+    }
+
+
+    public function userDestroy($id){
+        $user = User::find($id);
+        try {
+            $user->delete(); // xoa cung // CRUD
+            // xoa mem
+            // them 1 truong status : 0: Inactive; 1: active
+            // chuyen status tu 1 -> 0
+        }catch (\Exception $e){
+            return redirect()->back();
+        }
+        return redirect()->to("admin/user");
     }
     
 }

@@ -13,12 +13,12 @@ use App\Brand;
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
-
+ 
     public function home(){
-        $newests = Products::orderBy('created_at','desc')->take(10)->get();
+        $newests = Products::orderBy('created_at','desc')->take(12)->get();
         // $products = Products::orderBy('created_at','desc')->take(10)->get();
-        $cheaps = Products::orderBy('price','asc')->take(10)->get();
-        $exs = Products::orderBy('price','desc')->take(10)->get();
+        $cheaps = Products::orderBy('price','asc')->take(8)->get();
+        $exs = Products::orderBy('price','desc')->take(8)->get();
         return view("home",['newests'=>$newests,'cheaps'=>$cheaps,'exs'=>$exs]);
         }
 
@@ -50,7 +50,7 @@ class Controller extends BaseController
     //    // $category->Products()->orderBy('price','desc')->take(10)->get();
     //      return view("shop",['category'=>$category]);
     // }
-    public function contacts($id){
+    public function contacts(){
         return view("contacts");
     }
 
@@ -64,5 +64,10 @@ class Controller extends BaseController
 
     public function filter($c_id,$b_id){
         $products = Products::where('category_id',$c_id)->where('brand_id',$b_id)->get();
+    }
+
+
+    public function cart(){
+        return view("cart.cartUser");
     }
 }

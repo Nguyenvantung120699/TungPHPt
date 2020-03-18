@@ -26,3 +26,14 @@ Route::get('product/edit/{id}',"AdminController@productEdit");
 Route::post('product/update/{id}',"AdminController@productUpdate");
 
 Route::get('product/delete/{id}',"AdminController@productDestroy");
+
+
+//User
+Route::get('user',"AdminController@user");
+Route::get('user/create',"AdminController@userCreate");
+Route::post('user/store',"AdminController@userStore");
+
+Route::get('user/edit/{id}',"AdminController@userEdit");
+Route::post('user/update/{id}',"AdminController@userUpdate");
+
+Route::get('user/delete/{id}',"AdminController@userDestroy");

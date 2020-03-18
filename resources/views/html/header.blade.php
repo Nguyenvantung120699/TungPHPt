@@ -14,14 +14,14 @@
 					<div class="collapse navbar-collapse offset" id="navbarSupportedContent">
 						<ul class="nav navbar-nav menu_nav ml-auto">
 							<li class="nav-item"><a class="nav-link" href="{{url("/")}}">Home</a></li>
-							<li class="nav-item submenu dropdown active">
+							<li class="nav-item submenu dropdown">
 								<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
 								 aria-expanded="false">Shop</a>
 								<ul class="dropdown-menu">
 								<li class="nav-item"><a class="nav-link" href="{{url("/shop/{id}")}}">Shop Category</a></li>
-									<li class="nav-item active"><a class="nav-link" href="{{url("/productsdetails")}}>Product Details</a></li>
+									<li class="nav-item"><a class="nav-link" href="{{url("/productsdetails")}}>Product Details</a></li>
 									<li class="nav-item"><a class="nav-link" href="">Product Checkout</a></li>
-									<li class="nav-item"><a class="nav-link" href="cart.html">Shopping Cart</a></li>
+									<li class="nav-item"><a class="nav-link" href="{{url("/shopping/{id}")}}">Shopping Cart</a></li>
 									<li class="nav-item"><a class="nav-link" href="confirmation.html">Confirmation</a></li>
 								</ul>
 							</li>
@@ -35,17 +35,17 @@
 							</li>
 							<li class="nav-item submenu dropdown">
 								<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-								 aria-expanded="false">Pages</a>
+								 aria-expanded="false">My Account</a>
 								<ul class="dropdown-menu">
 									<li class="nav-item"><a class="nav-link" href="{{url("/login")}}">Login/Register</a></li>
-									<li class="nav-item"><a class="nav-link" href="tracking.html">Tracking</a></li>
-									<li class="nav-item"><a class="nav-link" href="elements.html">Elements</a></li>
+									<li class="nav-item"><a class="nav-link" href="{{url("/logout")}}">Logout</a></li>
+									<li class="nav-item"><a class="nav-link" href="{{url("/admin/user")}}">Admin Manager</a></li>
 								</ul>
 							</li>
 							<li class="nav-item"><a class="nav-link" href="{{url("/contacts")}}">Contact</a></li>
 						</ul>
 						<ul class="nav navbar-nav navbar-right">
-							<li class="nav-item"><a href="#" class="cart"><span class="ti-bag"></span></a></li>
+							<li class="nav-item"><a href="{{url("/cart/carts")}}" class="cart"><span class="ti-bag"></span></a></li>
 							<li class="nav-item">
 								<button class="search"><span class="lnr lnr-magnifier" id="search"></span></button>
 							</li>

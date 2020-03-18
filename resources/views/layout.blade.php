@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
 <html lang="zxx">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 @include('html.head')
 @include('html.head')

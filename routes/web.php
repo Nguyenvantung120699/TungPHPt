@@ -1,7 +1,11 @@
 <?php
 //route for admin
-Route::prefix("admin")->group(function (){
+Route::prefix("admin")->middleware("checkAdmin")->group(function (){
     include_once("admin.php");
+});
+
+Route::prefix("cart")->middleware("checkUser")->group(function (){
+    include_once("cart.php");
 });
 /*
 |--------------------------------------------------------------------------
@@ -23,8 +27,13 @@ Route::get("/","Controller@home");
 Route::get("/productsdetails/{id}","Controller@productsdetails");
 Route::get("/contacts","Controller@contacts");
 Route::get("/shop/{id}","Controller@shop");
+Route::get("/shopcategory/{id}","Controller@shopcategory");
 Route::get("/shopping/{id}","Controller@shopping");
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/logout',function(){
+    \Illuminate\Support\Facades\Auth::logout();
+    return redirect()->to("/login");
+});
