@@ -53,11 +53,9 @@
                                     {{$p->cart_qty}}
                                 </td>
                                 <td>
-                                    <!-- <h5>{{sprintf("%",$p->cart_total)}}</h5> -->
                                     <h5>0</h5>
                                 </td>
                             </tr>
-                            <!-- <h5>{{$p->total}}</h5> -->
                             @endforeach
                             <tr class="bottom_button">
                                 <td>
