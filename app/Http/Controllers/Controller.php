@@ -54,28 +54,26 @@ class Controller extends BaseController
 
     public function shopping($id,Request $request){
         $product = Products::find($id);
-        $cart = $request->sessions()->get("cart");
+        $cart = $request->session()->get("cart");
         if($cart == null){
             $cart = [];
         }
         foreach($cart as $p){
             if($p->id == $product->id){
                 $p->cart_qty = $p->cart_qty+1;
-                $p->cart_total =$product->price* $p->cart_qty;
-                sessions(["cart"=>$cart]);
+                session(["cart"=>$cart]);
                 return redirect()->to("/cart/carts");
             }
         }
         $product->cart_qty = 1;
-        $product->cart_total = $p->cart_total;
         $cart[] = $product;
-        sessions(["cart"=>$cart]);
+        session(["cart"=>$cart]);
         return redirect()->to("/cart/carts");
 
     }
 
     public function cart(Request $request){ 
-        $cart = $request->sessions()->get("cart");
+        $cart = $request->session()->get("cart");
         if($cart == null){
             $cart = [];
         }
