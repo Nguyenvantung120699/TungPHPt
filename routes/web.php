@@ -28,12 +28,13 @@ Route::get("/productsdetails/{id}","Controller@productsdetails");
 Route::get("/contacts","Controller@contacts");
 Route::get("/shop/{id}","Controller@shop");
 Route::get("/shopcategory/{id}","Controller@shopcategory");
-Route::get("/shopping/{id}","Controller@shopping");
+Route::get("/shopping/{id}","Controller@shopping")->middleware("auth");
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/logout',function(){
     \Illuminate\Support\Facades\Auth::logout();
+    session()->flush();
     return redirect()->to("/login");
 });

@@ -6,6 +6,7 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
+use Illuminate\Http\Request;
 use App\Products;
 use App\Category;
 use App\Brand;
@@ -50,24 +51,47 @@ class Controller extends BaseController
     //    // $category->Products()->orderBy('price','desc')->take(10)->get();
     //      return view("shop",['category'=>$category]);
     // }
-    public function contacts(){
-        return view("contacts");
-    }
 
-    public function shopping($id){
+    public function shopping($id,Request $request){
         $product = Products::find($id);
-        $product->update([
-            "quantity" => $product->quantity-1
-        ]);
-        return redirect()->to("productsdetails/{$product->id}");
+        $cart = $request->session()->get("cart");
+        if($cart == null){
+            $cart = [];
+        }
+        foreach($cart as $p){
+            if($p->id == $product->id){
+                $p->cart_qty = $p->cart_qty+1;
+                $p->cart_total =$product->price* $p->cart_qty;
+                session(["cart"=>$cart]);
+                return redirect()->to("/cart/carts");
+            }
+        }
+        $product->cart_qty = 1;
+        $product->cart_total =$product->price* $p->cart_qty;
+        $cart[] = $product;
+        session(["cart"=>$cart]);
+        return redirect()->to("/cart/carts");
+
     }
 
-    public function filter($c_id,$b_id){
+    public function cart(Request $request){ 
+        $cart = $request->session()->get("cart");
+        if($cart == null){
+            $cart = [];
+        }
+        // $total = 0;
+        // foreach($cart as $p){
+        //     $total += ($p->price*$p->cart_qty);
+        // }
+        return view("cart.cartUser",["cart"=>$cart]);
+
+    }
+
+        public function filter($c_id,$b_id){
         $products = Products::where('category_id',$c_id)->where('brand_id',$b_id)->get();
     }
 
-
-    public function cart(){
-        return view("cart.cartUser");
+        public function contacts(){
+        return view("contacts");
     }
 }

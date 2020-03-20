@@ -139,27 +139,29 @@ class AdminController extends Controller
 
     public function productStore(Request $request){
         $request->validate([
-            "product_name"=> "required",
-            "product_desc"=>"required",
-            "thumbnail"=>"required",
-            "gallery"=>"required",
-            "category_id"=>"required",
-            "brand_id"=>"required",
-            "price"=>"required",
+            "product_name" =>"required|string|unique:products,product_name,",
+            "product_desc" => "required|string",
+            "thumbnail" => "required|string",
+            "gallery" => "required|string",
+            "category_id" => "required|integer",
+            "brand_id" => "required|integer",
+            "price" => "required|numeric",
+            "quantity" => "required|integer"
         ]);
-        try{
+
+        try {
             Products::create([
-                "product_name"=> $request->get("product_name"),
-                "product_desc"=> $request->get("product_desc"),
-                "thumbnail"=> $request->get("thumbnail"),
-                "gallery"=> $request->get("gallery"),
-                "category_id"=> $request->get("category_id"),
-                "brand_id"=> $request->get("brand_id"),
-                "price"=> $request->get("price"),
-                "quantity"=> $request->get("quantity"),
+                "product_name" => $request->get("product_name"),
+                "product_desc" => $request->get("product_desc"),
+                "thumbnail" => $request->get("thumbnail"),
+                "gallery" => $request->get("gallery"),
+                "category_id" => $request->get("category_id"),
+                "brand_id" => $request->get("brand_id"),
+                "price" => $request->get("price"),
+                "quantity" => $request->get("quantity")
 
             ]);
-        }catch(\Exception $e){
+        }catch (\Exception $e){
             return redirect()->back();
         }
         return redirect()->to("admin/product");
@@ -173,27 +175,29 @@ class AdminController extends Controller
     public function productUpdate($id,Request $request){
        $products = Products::find($id);
        $request->validate([
-        "product_name"=> "required|string|max:255|unique:products,product_name,".$id,
-        "product_desc"=>"required|string|max:255:products,product_desc,".$id,
-        "thumbnail"=>"required|string|max:255:products,thumbnail,".$id,
-        "gallery"=>"required|string|max:255:products,gallery,".$id,
-        "category_id"=>"required:products,category_id,".$id,
-        "brand_id"=>"required:products,brand_id,".$id,
-        "price"=>"required|Float:products,price,".$id,
+        "product_name" =>"required|string|unique:products,product_name,".$id,
+        "product_desc" => "required|string",
+        "thumbnail" => "required|string",
+        "gallery" => "required|string",
+        "category_id" => "required|integer",
+        "brand_id" => "required|integer",
+        "price" => "required|numeric",
+        "quantity" => "required|integer"
     ]);
 
-    try{
-        $products->update([
-            "product_name"=> $request->get("product_name"),
-            "product_desc"=> $request->get("product_desc"),
-            "thumbnail"=> $request->get("thumbnail"),
-            "gallery"=> $request->get("gallery"),
-            "category_id"=> $request->get("category_id"),
-            "brand_id"=> $request->get("brand_id"),
-            "price"=> $request->get("price"),
-            "quantity"=> $request->get("quantity")
+    try {
+        Products::create([
+            "product_name" => $request->get("product_name"),
+            "product_desc" => $request->get("product_desc"),
+            "thumbnail" => $request->get("thumbnail"),
+            "gallery" => $request->get("gallery"),
+            "category_id" => $request->get("category_id"),
+            "brand_id" => $request->get("brand_id"),
+            "price" => $request->get("price"),
+            "quantity" => $request->get("quantity")
+
         ]);
-    }catch(\Exception $e){
+    }catch (\Exception $e){
         return redirect()->back();
     }
     return redirect()->to("admin/product");
@@ -253,7 +257,7 @@ class AdminController extends Controller
        $request->validate([
         "name"=> "required|string|max:255:users,name,".$id,
         "email"=> "required|string|email|max:255|unique:users,email,".$id,
-        "password"=> "required|string|min:8|confirmed:users,password,".$id,
+        "password"=> "required|string|min:8:users,password,".$id,
         "role"=> "required|Integer:users,role,".$id,
     ]);
 
@@ -261,7 +265,7 @@ class AdminController extends Controller
         $user->update([
             "name"=> $request->get("name"),
             "email"=> $request->get("email"),
-            "password"=> $request->get("password"),
+            "password" => $request->get("password"),
             "role"=> $request->get("role")
         ]);
     }catch(\Exception $e){
