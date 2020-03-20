@@ -33,24 +33,24 @@
                                 <th scope="col">Total</th>
                             </tr>
                         </thead>
-                        @foreach($cart as $product)
+                        @foreach($cart as $p)
                         <tbody>
                             <tr>
                                 <td>
                                     <div class="media">
-                                        <div class="d-flex">
-                                            <img src="{{$product->thumbnail}}" alt="">
+                                        <div class="d-flex ">
+                                            <p>{{$p->product_name}}</p>
                                         </div>
                                         <div class="media-body">
-                                            <p>{{$product->product_name}}</p>
+                                            <img style="width:10%" src="{{$p->thumbnail}}" alt="">
                                         </div>
                                     </div>
                                 </td>
                                 <td>
-                                    <h5>{{$product->price}}</h5>
+                                    <h5>{{$p->price}}</h5>
                                 </td>
                                 <td>
-                                    {{$product->cart_qty}}
+                                    {{$p->cart_qty}}
                                 </td>
                                 <td>
                                     <!-- <h5>{{sprintf("%",$p->cart_total)}}</h5> -->

@@ -61,13 +61,11 @@ class Controller extends BaseController
         foreach($cart as $p){
             if($p->id == $product->id){
                 $p->cart_qty = $p->cart_qty+1;
-                $p->cart_total =$product->price* $p->cart_qty;
                 session(["cart"=>$cart]);
                 return redirect()->to("/cart/carts");
             }
         }
         $product->cart_qty = 1;
-        $product->cart_total =$product->price* $p->cart_qty;
         $cart[] = $product;
         session(["cart"=>$cart]);
         return redirect()->to("/cart/carts");

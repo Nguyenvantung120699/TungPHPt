@@ -16,7 +16,7 @@ return [
     */
 
     // 'default' => env('DB_CONNECTION', 'mysql') ,
-    'default' => "pgsql",
+   'default' => "pgsql",
 
     /*
     |--------------------------------------------------------------------------
@@ -65,8 +65,8 @@ return [
         ],
 
         'pgsql' => [
-            'driver' => 'pgsql',
-            //'url' => env('DATABASE_URL'),
+            // 'driver' => 'pgsql',
+            'url' => env('DATABASE_URL'),
             'host' =>"ec2-34-200-116-132.compute-1.amazonaws.com", //env('DB_HOST', '127.0.0.1'),
             'port' =>5432, //env('DB_PORT', '5432'),
             'database' => "d3aj1oinljtqtf", //env('DB_DATABASE', 'forge'),
