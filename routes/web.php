@@ -41,5 +41,5 @@ Route::get('/logout',function(){
 
 Route::get("/checkout","Controller@checkout")->middleware("auth");
 Route::post("/checkout","Controller@placeOrder")->middleware("auth");
-Route::get("/checkout-success",'WebController@checkoutSuccess')->middleware("auth");
+Route::get("/checkoutSuccess",'Controller@checkoutSuccess')->middleware("auth");
 

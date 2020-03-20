@@ -134,7 +134,7 @@ class Controller extends BaseController
             ]);
         }
         session()->forget('cart');
-        return redirect()->to("checkout_success");
+        return redirect()->to("/checkoutSuccess");
 
     }
 
