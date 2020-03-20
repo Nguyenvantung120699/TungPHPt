@@ -54,7 +54,7 @@
                                 </td>
                                 <td>
                                     <!-- <h5>{{sprintf("%",$p->cart_total)}}</h5> -->
-                                    <h5>{{number_format($p->cart_total,0,',','.')}}</h5>
+                                    <h5>0</h5>
                                 </td>
                             </tr>
                             <!-- <h5>{{$p->total}}</h5> -->

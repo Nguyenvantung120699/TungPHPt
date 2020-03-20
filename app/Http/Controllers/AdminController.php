@@ -20,7 +20,7 @@ class AdminController extends Controller
 
     public function categoryStore(Request $request){
         $request->validate([
-            "category_name"=> "required|string|unique:category"
+            "category_name"=> "required|string|unique:category,category_name"
         ]);
         try{
             Category::create([
