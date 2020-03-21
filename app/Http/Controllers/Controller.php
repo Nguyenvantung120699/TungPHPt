@@ -141,10 +141,9 @@ class Controller extends BaseController
 
     //confirm 
 
-    // public function viewOrder($id){
-    //     $id = Auth::id();
-    //     $conr = Order::where('user_id',$id)->orderBy('created_at','desc')->take(1)->get();
-
+    public function checkoutSuccess(){
+        return view("confirmmation");
+    }
 
     //     $category_products = Products::where("category_id",$product->category_id)->where('id',"!=",$product->id)->take(10)->get();
     //     $brand_products = Products::where("brand_id",$product->brand_id)->where('id',"!=",$product->id)->take(10)->get();
