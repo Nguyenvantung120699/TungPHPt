@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\DB;
 use App\Products;
 use App\Category;
 use App\Order;
+use App\User;
 use App\Brand;
 
 class Controller extends BaseController
@@ -138,8 +139,21 @@ class Controller extends BaseController
 
     }
 
-    public function checkoutSuccess(){
-        return view("checkout_success");
+    //confirm 
+
+    public function checkoutSuccess($id){
+        $id = Auth::id();
+        $conr = Order::where('user_id',$id)->orderBy('created_at','desc')->take(1)->get();
+        return view("confirmmation",['conr'=>$conr]);
     }
+
+    public function historyOder($id){
+            // $user = User::find($id);
+            $id = Auth::id();
+            $newests = Order::where('user_id',$id)->orderBy('created_at','desc')->get();
+            // $newests = Order::orderBy('user_id')->();
+            return view('orderHistory',['newests'=>$newests]);  
+        }
+
 
 }
