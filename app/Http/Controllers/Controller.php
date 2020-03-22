@@ -151,11 +151,11 @@ class Controller extends BaseController
 
     //confirm 
 
-    public function checkoutSuccess($id){
-        $order = Order::find($id);
-        // $id = Auth::id();
-        $odp = OrderProduct::where('order_id','desc')->get();
-        return view('confirmmation',['order'=>$order,'odp'=>$odp]);
+    public function checkoutSuccess(){
+        // $order = Order::find($id);
+        // // $id = Auth::id();
+        // $odp = OrderProduct::where('order_id','desc')->get();
+        return view('oderSuccess');
     }
 
     public function historyOder($id){
