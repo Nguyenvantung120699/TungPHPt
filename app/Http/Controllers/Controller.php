@@ -164,10 +164,25 @@ class Controller extends BaseController
             return view('orderHistory',['newests'=>$newests]);  
         }
 
+
+        public function orderDestroy($id){
+            $order = Order::find($id);
+            try {
+                $order->delete();
+            }catch (\Exception $e){
+                return redirect()->back();
+            }
+            foreach ($cart as $p){
+                DB::table("orders_products")->delete();
+            }
+            return redirect()->to("/historyoder/{id}");
+        }
+    
+
         public function viewOrder($id){
             // $id = Auth::id();
             $order = Order::find($id);
-            $order_products = DB::table("orders_products")->where("order_id",'$id')->get();
+            $order_products = Order::where("id",$id)->get();
             return view('viewOrder',['order'=>$order,'order_products'=>$order_products]);  
         }
 

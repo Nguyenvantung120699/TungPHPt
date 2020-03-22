@@ -3,7 +3,6 @@
 
 @section('content')
 
-
 <section class="banner-area organic-breadcrumb">
 		<div class="container">
 			<div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">
@@ -54,9 +53,14 @@
 							<ul class="list">
 								<li><a href="#">
 									<form action="{{url("/viewOrder/{id}")}}">
-										<button type="submit" class="btn btn-warning btn-md btn-block">Xem chi tiết</button>
+										<button type="submit" class="btn btn-light btn-md btn-block">Xem chi tiết</button>
 									</form>
-									<button type="button" class="btn btn-light btn-md btn-block">Mua lại</button>
+									<form action="{{url("/checkout")}}" method="POST" novalidate="novalidate">
+										<button type="submit" class="btn btn-warning btn-md btn-block">Mua lại</button>
+									</form>
+									<form action="{{url("/deleteOrder/{id}")}}">
+										<button type="submit" class="btn btn-danger btn-md btn-block">hủy đơn hàng</button>
+									</form>
 								</li>
 							</ul>
 						</div>

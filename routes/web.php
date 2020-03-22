@@ -46,3 +46,5 @@ Route::get("/checkoutSuccess/{id}",'Controller@checkoutSuccess')->middleware("au
 Route::get("/historyoder/{id}",'Controller@historyOder')->middleware("auth");
 Route::get("/viewOrder/{id}",'Controller@viewOrder')->middleware("auth");
 
+Route::get("/deleteOrder/{id}",'Controller@orderDestroy')->middleware("auth");
+
