@@ -24,7 +24,7 @@
 			<h1 class="title_confirmation">Thank you. Your order has been received.</h1>
         </div>
         <div class="order_details section_gap">
-            <form action="">
+            <form action="{{url("/historyoder/{id}")}}">
                 <button type="submit" class="primary-btn">Xem lịch sử đơn hàng</button>
             </form>
         </div>
