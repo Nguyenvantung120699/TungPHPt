@@ -59,7 +59,7 @@
 										<button type="submit" class="btn btn-warning btn-md btn-block">Mua lại</button>
 									</form>
 									<form action="{{url("/deleteOrder/{id}")}}">
-										<button type="submit" class="btn btn-danger btn-md btn-block">hủy đơn hàng</button>
+										<button type="submit" class="btn btn-secondary btn-md btn-block">hủy đơn hàng</button>
 									</form>
 								</li>
 							</ul>
