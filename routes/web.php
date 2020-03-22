@@ -41,7 +41,8 @@ Route::get('/logout',function(){
 
 Route::get("/checkout","Controller@checkout")->middleware("auth");
 Route::post("/checkout","Controller@placeOrder")->middleware("auth");
-Route::get("/checkoutSuccess",'Controller@checkoutSuccess')->middleware("auth");
+Route::get("/checkoutSuccess/{id}",'Controller@checkoutSuccess')->middleware("auth");
 
 Route::get("/historyoder/{id}",'Controller@historyOder')->middleware("auth");
+Route::get("/viewOrder/{id}",'Controller@viewOrder')->middleware("auth");
 

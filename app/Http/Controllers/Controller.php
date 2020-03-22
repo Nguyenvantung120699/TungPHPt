@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\DB;
 use App\Products;
 use App\Category;
 use App\Order;
+use App\OrderProduct;
 use App\User;
 use App\Brand;
 
@@ -133,30 +134,41 @@ class Controller extends BaseController
                 'qty'=>$p->cart_qty,
                 'price'=>$p->price
             ]);
+
+        //    OrderProduct::insert([
+        //             'order_id'=> $order->id,
+        //             'product_id'=>$p->id,
+        //             'qty'=>$p->cart_qty,
+        //             'price'=>$p->price
+        //         ]);
+
+
         }
         session()->forget('cart');
-        return redirect()->to("/checkoutSuccess");
+        return redirect()->to("/checkoutSuccess/{id}");
 
     }
 
     //confirm 
 
-    public function checkoutSuccess(){
-        return view("confirmmation");
+    public function checkoutSuccess($id){
+        $order = Order::find($id);
+        // $id = Auth::id();
+        $odp = OrderProduct::where('order_id','desc')->get();
+        return view('confirmmation',['order'=>$order,'odp'=>$odp]);
     }
 
-    //     $category_products = Products::where("category_id",$product->category_id)->where('id',"!=",$product->id)->take(10)->get();
-    //     $brand_products = Products::where("brand_id",$product->brand_id)->where('id',"!=",$product->id)->take(10)->get();
-
-    //     return view("confirmmation",['conr'=>$conr]);
-    // }
-
     public function historyOder($id){
-            // $user = User::find($id);
             $id = Auth::id();
             $newests = Order::where('user_id',$id)->orderBy('created_at','desc')->get();
-            // $newests = Order::orderBy('user_id')->();
             return view('orderHistory',['newests'=>$newests]);  
+        }
+
+        public function viewOrder($id){
+            // $id = Auth::id();
+            $order = Order::find($id);
+            $order_products = DB::table("orders_products")->where("order_id",'$id')->get();
+            return view('viewOrder',['order'=>$order,'order_products'=>$order_products]);  
         }
 
 

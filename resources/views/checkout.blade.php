@@ -1,7 +1,6 @@
 @extends('layout')
 
 
-@ssection('title',"thanh toán")
 @section('content')
 
 <section class="banner-area organic-breadcrumb">
