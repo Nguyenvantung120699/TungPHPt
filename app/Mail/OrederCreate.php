@@ -17,7 +17,7 @@ class OrederCreate extends Mailable
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(Order $order)
     {
         $this->order = $order;
     }
