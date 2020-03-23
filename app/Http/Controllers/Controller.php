@@ -156,7 +156,8 @@ class Controller extends BaseController
 
         }
         session()->forget('cart');
-        Mail::to("ntung9921@gmail.com")->send(new OrederCreate());
+        Mail::to("ntung9921@gmail.com")->send(new OrederCreate($order));
+        // Mail::to(Auth::user()->email)->send(new OrederCreate());
         return redirect()->to("/checkoutSuccess/{id}");
 
     }

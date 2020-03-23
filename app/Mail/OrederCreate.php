@@ -11,6 +11,7 @@ class OrederCreate extends Mailable
 {
     use Queueable, SerializesModels;
 
+    public $order;
     /**
      * Create a new message instance.
      *
@@ -18,7 +19,7 @@ class OrederCreate extends Mailable
      */
     public function __construct()
     {
-        //
+        $this->order = $order;
     }
 
     /**
@@ -28,6 +29,6 @@ class OrederCreate extends Mailable
      */
     public function build()
     {
-        return $this->markdown('emails.odercreated');
+        return $this->markdown('emails.odercreated')->with(['order'=>$this->order]);
     }
 }

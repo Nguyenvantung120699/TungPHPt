@@ -1,7 +1,7 @@
 @component('mail::message')
 # Introduction
 
-The body of your message.
+Tổng tiền : {{$order->grand_total}}
 
 @component('mail::button', ['url' => ''])
 Button Text
