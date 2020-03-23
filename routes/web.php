@@ -27,6 +27,7 @@ Route::get("/","Controller@home");
 Route::get("/productsdetails/{id}","Controller@productsdetails");
 Route::get("/contacts","Controller@contacts");
 Route::get("/shop/{id}","Controller@shop");
+Route::get("/shopproduct/{id}","Controller@shopproduct");
 Route::get("/shopcategory/{id}","Controller@shopcategory");
 Route::get("/shopping/{id}","Controller@shopping")->middleware("auth");
 

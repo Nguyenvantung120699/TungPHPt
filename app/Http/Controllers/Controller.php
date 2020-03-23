@@ -53,6 +53,12 @@ class Controller extends BaseController
        // $category->Products()->orderBy('price','desc')->take(10)->get();
         return view("shop",['category'=>$category]);
     }
+    public function shopproduct(){
+        $newests = Products::orderBy('created_at','desc')->take(12)->get();
+        $cheaps = Products::orderBy('price','asc')->take(8)->get();
+        $exs = Products::orderBy('price','desc')->take(8)->get();   
+        return view("shopProduct",['newests'=>$newests,'cheaps'=>$cheaps,'exs'=>$exs]);
+    }
     // public function listing(){
     //     $category = Category::all();
     //     //$so_luong_sp = $category->Products()->count(); // ra so luong san pham
