@@ -21,7 +21,7 @@
 
 	<section class="order_details section_gap">
 		<div class="container">
-			<h3 class="title_confirmation">Thank you. Your order has been received.</h3>
+			<h1 class="title_confirmation">Thank you. Your order has been received.</h1>
 			<div class="row order_d_inner">
 				<div class="col-lg-4">
 					<div class="details_item">

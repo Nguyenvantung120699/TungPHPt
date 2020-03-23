@@ -9,6 +9,7 @@ use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 use App\Products;
 use App\Category;
 use App\Order;
@@ -21,6 +22,9 @@ class Controller extends BaseController
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
  
     public function home(){
+        // if(is_admin()){
+        //     die("admin day");
+        // }
         $newests = Products::orderBy('created_at','desc')->take(12)->get();
         // $products = Products::orderBy('created_at','desc')->take(10)->get();
         $cheaps = Products::orderBy('price','asc')->take(8)->get();
@@ -145,6 +149,7 @@ class Controller extends BaseController
 
         }
         session()->forget('cart');
+        Mail::to("ntung9921@gmail.com")->send(new OrderCreated());
         return redirect()->to("/checkoutSuccess/{id}");
 
     }
