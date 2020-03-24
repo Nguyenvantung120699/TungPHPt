@@ -11,11 +11,11 @@
         <div class="card">
             <div class="card-header">Sửa danh mục</div>
             <div class="card-body">
-                <form action="{{url("admin/category/update",['id'=>$category->id])}}" method="post">
+                <form action="{{url("admin/category/update",['id'=>$categories->id])}}" method="post">
                     @csrf
                     <div class="form-group has-success">
                         <label for="cc-name" class="control-label mb-1">Tên danh mục</label>
-                        <input id="cc-name" name="category_name" type="text" value="{{$category->category_name}}"
+                        <input id="cc-name" name="category_name" type="text" value="{{$categories->category_name}}"
                                class="form-control cc-name @if($errors->has("category_name"))is-invalid @endif" >
                         <span class="help-block field-validation-valid"></span>
                         @if($errors->has("category_name"))
