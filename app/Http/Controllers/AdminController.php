@@ -186,7 +186,7 @@ class AdminController extends Controller
     ]);
 
     try {
-        Products::create([
+        $products->update([
             "product_name" => $request->get("product_name"),
             "product_desc" => $request->get("product_desc"),
             "thumbnail" => $request->get("thumbnail"),
