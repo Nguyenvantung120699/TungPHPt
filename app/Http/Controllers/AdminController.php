@@ -139,7 +139,7 @@ class AdminController extends Controller
 
     public function productStore(Request $request){
         $request->validate([
-            "product_name" =>"required|string|unique:products,product_name,",
+            "product_name" =>"required|string|unique:products",
             "product_desc" => "required|string",
             "thumbnail" => "required|string",
             "gallery" => "required|string",
