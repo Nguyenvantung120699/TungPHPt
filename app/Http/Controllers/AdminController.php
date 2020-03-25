@@ -230,10 +230,10 @@ class AdminController extends Controller
 
     public function userStore(Request $request){
         $request->validate([
-            "name"=> "required|string|max:255:users,name,",
-            "email"=> "required|string|email|max:255|unique:users,email,",
-            "password"=> "required|string|min:8:users,password,",
-            "role"=> "required|Integer:users,role,",
+            "name"=> "required|string|max:255:users",
+            "email"=> "required|string|email|max:255|unique,",
+            "password"=> "required|string|min:8,",
+            "role"=> "required|Integer,",
         ]);
         try{
             User::create([
