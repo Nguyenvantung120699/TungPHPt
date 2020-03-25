@@ -23,7 +23,7 @@
 			<h1>History Order</h1>
 			<div class="table-responsive">
 				@foreach($newests as $u)
-				<div class="row order_d_inner border">
+				<div class="row order_d_inner border border-bottom">
 					<div class="col-lg-4">
 						<div class="details_item">
 							<h4>Order Info</h4>
