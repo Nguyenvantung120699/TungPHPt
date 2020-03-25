@@ -162,6 +162,7 @@ class AdminController extends Controller
 
             ]);
         }catch (\Exception $e){
+            dd($e);
             return redirect()->back();
         }
         return redirect()->to("admin/product");
