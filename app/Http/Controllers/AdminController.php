@@ -231,7 +231,7 @@ class AdminController extends Controller
     public function userStore(Request $request){
         $request->validate([
             "name"=> "required|string|max:255:users",
-            "email"=> "required|string|email|max:255|unique,",
+            "email"=> "required|string|email|max:255,",
             "password"=> "required|string|min:8,",
             "role"=> "required|Integer,",
         ]);
