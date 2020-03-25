@@ -19,14 +19,14 @@ class AdminController extends Controller
     }
 
     public function categoryStore(Request $request){
-        $request->validate([
-            "category_name"=> "required|string|unique:category"
+        $request->validate([ // truyen vao rules de validate
+            "category_name"=> "required|string|unique:category"  // validation laravel
         ]);
-        try{
+        try {
             Category::create([
                 "category_name"=> $request->get("category_name")
             ]);
-        }catch(\Exception $e){
+        }catch (\Exception $e){
             return redirect()->back();
         }
         return redirect()->to("admin/category");
@@ -143,10 +143,10 @@ class AdminController extends Controller
             "product_desc" => "required|string",
             "thumbnail" => "required|string",
             "gallery" => "required|string",
-            "category_id" => "required|integer",
-            "brand_id" => "required|integer",
+            "category_id" => "required|numeric",
+            "brand_id" => "required|numeric",
             "price" => "required|numeric",
-            "quantity" => "required|integer"
+            "quantity" => "required|numeric"
         ]);
 
         try {
