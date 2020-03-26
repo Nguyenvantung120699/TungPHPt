@@ -23,7 +23,6 @@
 					<div class="details_item">
 						<h4>Order Info</h4>
 						<ul class="list">
-							<li><a href="#"><span>Order id</span>{{$order->id}}</a></li>
 							<li><a href="#"><span>customer name</span>{{$order->customer_name}}</a></li>
 							<li><a href="#"><span>telephone</span>{{$order->telephone}}</a></li>
                             <li><a href="#"><span>Grand Total</span>{{$order->grand_total}}</a></li>
@@ -40,50 +39,6 @@
                             <li><a href="#"><span>status</span>{{$order->status}}</a></li>
 						</ul>
 					</div>
-				</div>
-			</div>
-			<div class="order_details_table">
-				<h2>Order Details</h2>
-				<div class="table-responsive">
-					<table class="table">
-						<thead>
-							<tr>
-								<th scope="col">order id</th>
-                                <th scope="col">Product id</th>
-								<th scope="col">Quantity</th>
-								<th scope="col">Total</th>
-							</tr>
-						</thead>
-						<tbody>
-                        @foreach($order_products as $c)
-							<tr>
-								<td>
-									<p>{{$c->$order_id}}</p>
-								</td>
-                                <td>
-									<p>{{$c->$product_id}}</p>
-								</td>
-								<td>
-									<h5>{{$c->$qty}}</h5>
-								</td>
-								<td>
-									<p>{{$c->$price}}</p>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<h4>Total</h4>
-								</td>
-								<td>
-									<h5></h5>
-								</td>
-								<td>
-									<p>{{$order->grand_total}}</p>
-								</td>
-							</tr>
-                            @endforeach
-						</tbody>
-					</table>
 				</div>
 			</div>
 		</div>

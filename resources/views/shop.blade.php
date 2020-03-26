@@ -20,6 +20,22 @@
 	</section>
 	<!-- End Banner Area -->
 
+	<div class="col-xl-12 col-lg-12 col-md-12">
+		<div class="sidebar-categories">
+			<div class="head">Browse Categories</div>
+			<ul class="main-categories">
+				<li class="main-nav-list"><a data-toggle="collapse" href="#fruitsVegetable" aria-expanded="false" aria-controls="fruitsVegetable"><span
+							class="lnr lnr-arrow-right"></span>danh mục sản phẩm</a>
+					<ul class="collapse" id="fruitsVegetable" data-toggle="collapse" aria-expanded="false" aria-controls="fruitsVegetable">
+						@foreach(\App\Category::all() as $c)
+							<li class="main-nav-list child"><a href="{{url("/shop/{$c->id}")}}">{{$c->category_name}}</a></li>
+						@endforeach	
+					</ul>
+				</li>
+			</ul>
+		</div>
+	</div>
+
 	<!--================Single Product Area =================-->
 	<section class="lattest-product-area pb-40 category-list">
 	<h1>{{$category->category_name}}</h1>

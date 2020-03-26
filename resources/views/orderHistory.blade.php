@@ -55,7 +55,7 @@
 									<form action="{{url("/viewOrder/{id}")}}">
 										<button type="submit" class="btn btn-light btn-md btn-block">Xem chi tiết</button>
 									</form>
-									<form action="{{url("/checkout")}}" method="POST" novalidate="novalidate">
+									<form action="{{url("/addorder/{id}")}}" method="POST" novalidate="novalidate">
 										<button type="submit" class="btn btn-warning btn-md btn-block">Mua lại</button>
 									</form>
 									<form action="{{url("/deleteOrder/{id}")}}">

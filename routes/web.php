@@ -27,7 +27,7 @@ Route::get("/","Controller@home");
 Route::get("/productsdetails/{id}","Controller@productsdetails");
 Route::get("/contacts","Controller@contacts");
 Route::get("/shop/{id}","Controller@shop");
-Route::get("/shopproduct","Controller@shopproduct");
+Route::get("/shopproduct/{id}","Controller@shopproduct");
 Route::get("/shopcategory/{id}","Controller@shopcategory");
 Route::get("/shopping/{id}","Controller@shopping")->middleware("auth");
 
@@ -46,6 +46,6 @@ Route::get("/checkoutSuccess/{id}",'Controller@checkoutSuccess')->middleware("au
 
 Route::get("/historyoder/{id}",'Controller@historyOder')->middleware("auth");
 Route::get("/viewOrder/{id}",'Controller@viewOrder')->middleware("auth");
-
-Route::get("/deleteOrder/{id}",'Controller@orderDestroy')->middleware("auth");
+Route::get("/addorder/{id}",'Controller@addOrder')->middleware("auth");
+Route::get("/deleteOrder/{id}",'Controller@deleteOrder')->middleware("auth");
 

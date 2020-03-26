@@ -53,11 +53,15 @@ class Controller extends BaseController
        // $category->Products()->orderBy('price','desc')->take(10)->get();
         return view("shop",['category'=>$category]);
     }
-    public function shopproduct(){
-        $newests = Products::orderBy('created_at','desc')->take(12)->get();
-        $cheaps = Products::orderBy('price','asc')->take(8)->get();
-        $exs = Products::orderBy('price','desc')->take(8)->get();   
-        return view("shopProduct",['newests'=>$newests,'cheaps'=>$cheaps,'exs'=>$exs]);
+    public function shopproduct($id){
+        // $newests = Products::orderBy('created_at','desc')->take(12)->get();     
+        // $cheaps = Products::orderBy('price','asc')->take(8)->get();
+        // $exs = Products::orderBy('price','desc')->take(8)->get();   
+        // return view("shopProduct",['newests'=>$newests,'cheaps'=>$cheaps,'exs'=>$exs]);
+        $newests = Products::orderBy('created_at','desc')->take(12)->get(); 
+        $products = Products::where("category_id",$id)->take(9)->get();
+
+        return view("shopProduct",['product'=>$products,'newests'=>$newests]);
     }
     // public function listing(){
     //     $category = Category::all();
@@ -146,18 +150,18 @@ class Controller extends BaseController
                 'price'=>$p->price
             ]);
 
-        //    OrderProduct::insert([
-        //             'order_id'=> $order->id,
-        //             'product_id'=>$p->id,
-        //             'qty'=>$p->cart_qty,
-        //             'price'=>$p->price
-        //         ]);
+            //    OrderProduct::insert([
+            //             'order_id'=> $order->id,
+            //             'product_id'=>$p->id,
+            //             'qty'=>$p->cart_qty,
+            //             'price'=>$p->price
+            //         ]);
 
 
         }
         session()->forget('cart');
-        Mail::to("ntung9921@gmail.com")->send(new OrederCreate($order));
-        // Mail::to(Auth::user()->email)->send(new OrederCreate());
+        // Mail::to("ntung9921@gmail.com")->send(new OrederCreate($order));
+        Mail::to(Auth::user()->email)->send(new OrederCreate($order));
         return redirect()->to("/checkoutSuccess/{id}");
 
     }
@@ -177,27 +181,55 @@ class Controller extends BaseController
             return view('orderHistory',['newests'=>$newests]);  
         }
 
-
-        public function orderDestroy($id){
-            $order = Order::find($id);
-            try {
-                $order->delete();
-            }catch (\Exception $e){
-                return redirect()->back();
-            }
-            foreach ($cart as $p){
-                DB::table("orders_products")->delete();
-            }
-            return redirect()->to("/historyoder/{id}");
-        }
-    
-
         public function viewOrder($id){
-            // $id = Auth::id();
             $order = Order::find($id);
-            $order_products = Order::where("id",$id)->get();
-            return view('viewOrder',['order'=>$order,'order_products'=>$order_products]);  
+            $order_product = OrderProduct::all()->where("order_id", $id);
+    
+            return view("viewOrder", [
+                "order" => $order,
+                "order_product" => $order_product
+            ]);
         }
+
+
+
+        public function addOrder($id)
+    {
+        $order = Order::find($id);
+        $order_product = OrderProduct::all()->where("order_id", $id);
+        $new_order = $order->replicate();
+        $new_order->status = Order::STATUS_PENDING;
+        $new_order->save();
+        foreach ($order_product as $p) {
+            DB::table("orders_products")->insert([
+                'order_id' => $new_order->id,
+                'product_id' => $p->product_id,
+                'qty' => $p->qty,
+                'price' => $p->price
+            ]);
+        }
+
+        Mail::to(Auth::user()->email)->send(new OrderCreated($order));
+        return redirect()->to("oderSuccess");
+    }
+
+
+
+    public function deleteOrder($id)
+    {
+        $order = Order::find($id);
+        try {
+            if ($order->status != Order::STATUS_CANCEL) {
+                $order->status = Order::STATUS_CANCEL;
+                $order->save();
+            }
+        } catch (\Exception $e) {
+            return redirect()->back();
+        }
+       Mail::to(Auth::user()->email)->send(new CancelOrder($order));
+            return redirect()->to("/historyoder/{id}");
+    }
+
 
 
 }
