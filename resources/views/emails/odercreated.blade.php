@@ -1,6 +1,8 @@
-<!-- @component('mail::message')
+@component('mail::message')
 # Introduction
+you are order in karmaShop success 
 
+số lượng sp : {{$order->qty}}
 Tổng tiền : {{$order->grand_total}}
 
 @component('mail::button', ['url' => ''])
@@ -9,7 +11,7 @@ Button Text
 
 Thanks,<br>
 {{ config('app.name') }}
-@endcomponent -->
+@endcomponent
 
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
