@@ -98,7 +98,7 @@
                                 </td>
                                 <td>
                                     <div class="checkout_btn_inner d-flex align-items-center">
-                                        <a class="primary-btn" href="#">Continue Shopping</a>
+                                        <a class="primary-btn" href="{{url("/shopproduct/2")}}">Continue Shopping</a>
                                         <a class="primary-btn" href="{{url("/checkout")}}">Proceed to checkout</a>
                                     </div>
                                 </td>
