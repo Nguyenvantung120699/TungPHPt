@@ -31,7 +31,7 @@ class Controller extends BaseController
         $newests = Products::orderBy('created_at','desc')->take(12)->get();
         // $products = Products::orderBy('created_at','desc')->take(10)->get();
         $cheaps = Products::orderBy('price','asc')->take(8)->get();
-        $exs = Products::orderBy('price','desc')->take(8)->get();
+        $exs = Products::orderBy('quantity','desc')->take(8)->get();
         return view("home",['newests'=>$newests,'cheaps'=>$cheaps,'exs'=>$exs]);
         }
 

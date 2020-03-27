@@ -267,7 +267,7 @@
 					</div>
 
 					<div class="text-center">
-						<h3>Sản Phẩm Giá Cao</h3>
+						<h3>Sản Phẩm bán chạy nhất</h3>
 					</div>
 					<div class="row">
 					@foreach($exs as $p)
@@ -283,7 +283,7 @@
 									</div>
 									<div class="prd-bottom">
 
-										<a href="" class="social-info">
+										<a href="" class="social-info">	
 											<span class="ti-bag"></span>
 											<p class="hover-text">add to bag</p>
 										</a>
