@@ -27,6 +27,9 @@
             <form action="{{url("/historyoder/{id}")}}">
                 <button type="submit" class="primary-btn">Xem lịch sử đơn hàng</button>
             </form>
+			<form action="{{url("/shopproduct/2")}}">
+                <button type="submit" class="primary-btn">Tiếp tục mua hàng</button>
+            </form>
         </div>
 	</section>
 
