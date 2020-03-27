@@ -129,35 +129,10 @@
         <div class="menu-sidebar__content js-scrollbar1">
             <nav class="navbar-sidebar">
                 <ul class="list-unstyled navbar__list">
-                    <li>
-                        <form method="get" action="{{url('/')}}">
-                            <button class="btn col-md-9"><b>Karma Shop</b></button>
-                        </form>
-                    </li>
                     <li class="has-sub">
                         <a class="js-arrow" href="#">
                             <i class="fas fa-tachometer-alt"></i>Manage</a>
                         <ul class="list-unstyled navbar__sub-list js-sub-list">
-                            <li>
-                                <form method="get" action="{{url('admin/category')}}">
-                                    <button class="btn btn-primary col-md-12">Category</button>
-                                </form>
-                            </li>
-                            <li>
-                                <form method="get" action="{{url('admin/brand')}}">
-                                    <button class="btn btn-primary col-md-12">Brand</button>
-                                </form>
-                            </li>
-                            <li>
-                                <form method="get" action="{{url('admin/product')}}">
-                                    <button class="btn btn-primary col-md-12">Product</button>
-                                </form>
-                            </li>
-                            <li>
-                                <form method="get" action="{{url('admin/user')}}">
-                                    <button class="btn btn-primary col-md-12">User</button>
-                                </form>
-                            </li>
                         </ul>
                     </li>
                     <li>
