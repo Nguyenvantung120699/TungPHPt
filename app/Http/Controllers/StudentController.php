@@ -58,7 +58,7 @@ class StudentController extends BaseController
     public function studentUpdate($id,Request $request){
        $student = Student::find($id);
        $request->validate([
-        "student_name" =>"required|string|unique:student,student_name,".$id,
+        "student_name" =>"required|string:student,student_name,".$id,
         "age" => "required|string",
         "telephone" => "required|string",
         "classRoom" => "required|string",
@@ -66,7 +66,7 @@ class StudentController extends BaseController
     ]);
 
     try {
-        $products->update([
+        $student->update([
             "student_name" => $request->get("student_name"),
             "age" => $request->get("age"),
             "telephone" => $request->get("telephone"),

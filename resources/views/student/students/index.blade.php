@@ -22,7 +22,8 @@
                 <th>telephone</th>
                 <th>classRoom</th>
                 <th>total_mark</th>
-                <th>Remember_Token</th>
+                <th>created_at</th>
+                <th>updated_at</th>
                 <th></th>
             </tr>
             </thead>
@@ -35,7 +36,8 @@
                     <td>{{$c->telephone}}</td>
                     <td>{{$c->classRoom}}</td>
                     <td>{{$c->total_mark}}</td>
-                    <td>{{$c->remember_token}}</td>
+                    <td>{{$c->created_at}}</td>
+                    <td>{{$c->updated_at}}</td>
                     <td>
                         <div class="table-data-feature">
                         <form action="{{url("student/student/edit",['id'=>$c->id])}}">
