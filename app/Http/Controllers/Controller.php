@@ -231,8 +231,13 @@ class Controller extends BaseController
             return redirect()->back();
         }
        Mail::to(Auth::user()->email)->send(new CancelOrder($order));
-            return redirect()->to("/historyoder/{id}");
+            return redirect()->to("/deletecompete");
     }
+
+    public function deleteComplete(){
+        return view('deleteCompelete');
+    }
+
 
 
 

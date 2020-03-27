@@ -29,7 +29,6 @@
 								<ul class="dropdown-menu">
 									<li class="nav-item"><a class="nav-link" href="{{url("/login")}}">Login/Register</a></li>
 									<li class="nav-item"><a class="nav-link" href="{{url("/logout")}}">Logout</a></li>
-									<li class="nav-item"><a class="nav-link" href="{{url("/admin/user")}}">Admin Manager</a></li>
 									<li class="nav-item"><a class="nav-link" href="{{url("/historyoder/{id}")}}">History Order</a></li>
 								</ul>
 							</li>
