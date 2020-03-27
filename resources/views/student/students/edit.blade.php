@@ -13,7 +13,7 @@
         <div class="card">
             <div class="card-header">Sửa danh mục</div>
             <div class="card-body">
-                <form action="{{url("student/students/update",['id'=>$user->id])}}" method="post">
+                <form action="{{url("student/students/update",['id'=>$student->id])}}" method="post">
                     @csrf
                     <div class="form-group has-success">
                         <label for="cc-name" class="control-label mb-1">student name</label>
