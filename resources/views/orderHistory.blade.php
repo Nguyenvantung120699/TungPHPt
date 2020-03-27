@@ -52,13 +52,13 @@
 							<h4>Action</h4>
 							<ul class="list">
 								<li><a href="#">
-									<form action="{{url("/viewOrder/{id}")}}">
+									<form action="{{url("/viewOrder/{$u->id}")}}">
 										<button type="submit" class="btn btn-light btn-md btn-block">Xem chi tiết</button>
 									</form>
-									<form action="{{url("/addorder/{id}")}}" method="POST" novalidate="novalidate">
+									<form action="{{url("/addorder/{$u->id}")}}" novalidate="novalidate">
 										<button type="submit" class="btn btn-warning btn-md btn-block">Mua lại</button>
 									</form>
-									<form action="{{url("/deleteOrder/{id}")}}">
+									<form method="get" action="{{url("/deleteOrder/{$u->id}")}}">
 										<button type="submit" class="btn btn-secondary btn-md btn-block">hủy đơn hàng</button>
 									</form>
 								</li>

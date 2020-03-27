@@ -17,6 +17,8 @@ use App\Order;
 use App\OrderProduct;
 use App\User;
 use App\Brand;
+use App\Mail\CancelOrder;
+
 
 class Controller extends BaseController
 {
@@ -97,12 +99,13 @@ class Controller extends BaseController
         if($cart == null){
             $cart = [];
         }
-        // $total = 0;
-        // foreach($cart as $p){
-        //     $total += ($p->price*$p->cart_qty);
-        // }
-        return view("cart.cartUser",["cart"=>$cart]);
 
+        $cart_total =0;
+        foreach ($cart as $p){
+            $cart_total +=($p->price*$p->cart_qty);
+        }
+
+        return view("cart.cartUser",["cart"=>$cart,"cart_total"=>$cart_total]);
     }
 
         public function filter($c_id,$b_id){
@@ -162,7 +165,7 @@ class Controller extends BaseController
         session()->forget('cart');
         // Mail::to("ntung9921@gmail.com")->send(new OrederCreate($order));
         Mail::to(Auth::user()->email)->send(new OrederCreate($order));
-        return redirect()->to("/checkoutSuccess/{id}");
+        return redirect()->to("/checkoutSuccess");
 
     }
 
@@ -181,7 +184,8 @@ class Controller extends BaseController
             return view('orderHistory',['newests'=>$newests]);  
         }
 
-        public function viewOrder($id){
+        public function viewOrder($id)
+        {
             $order = Order::find($id);
             $order_product = OrderProduct::all()->where("order_id", $id);
     
@@ -209,8 +213,8 @@ class Controller extends BaseController
             ]);
         }
 
-        Mail::to(Auth::user()->email)->send(new OrderCreated($order));
-        return redirect()->to("oderSuccess");
+        Mail::to(Auth::user()->email)->send(new OrederCreate($order));
+        return redirect()->to("/checkoutSuccess");
     }
 
 
@@ -230,6 +234,42 @@ class Controller extends BaseController
             return redirect()->to("/historyoder/{id}");
     }
 
+
+
+    private function formatOrder($order)
+    {
+        switch ($order->payment_total) {
+            case 'cod':
+                $order->payment_total = 'Cheque Payment';
+                break;
+            case 'paypal':
+                $order->payment_total = 'Paypal';
+                break;
+
+        }
+        switch ($order->status) {
+            case '0':
+                $order->status = 'STATUS_PENDING';
+                break;
+
+            case '1':
+                $order->status = 'STATUS_PROCESS';
+                break;
+
+            case '2':
+                $order->status = 'STATUS_SHIPPING';
+                break;
+
+            case '3':
+                $order->status = 'STATUS_COMPLETE';
+                break;
+
+            case '4':
+                $order->status = 'STATUS_CANCEL';
+                break;
+        }
+        return $order;
+    }
 
 
 }
