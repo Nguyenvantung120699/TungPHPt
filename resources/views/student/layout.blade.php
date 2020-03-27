@@ -28,15 +28,6 @@
                         <a class="js-arrow" href="#">
                             <i class="fas fa-tachometer-alt"></i>quản lí</a>
                         <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
-                            <li>
-                                <a href="#">Category</a>
-                            </li>
-                            <li>
-                                <a href="#">Brand</a>
-                            </li>
-                            <li>
-                                <a href="#">Product</a>
-                            </li>
                         </ul>
                     </li>
                     <li>
