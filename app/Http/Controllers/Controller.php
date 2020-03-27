@@ -223,7 +223,7 @@ class Controller extends BaseController
             return redirect()->back();
         }
        Mail::to(Auth::user()->email)->send(new CancelOrder($order));
-            return redirect()->to("/deletecompete");
+            return redirect()->to("/deletecomplete");
     }
 
     public function deleteComplete(){
