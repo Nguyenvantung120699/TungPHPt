@@ -8,7 +8,7 @@ class Order extends Model
 {
      protected $table = 'orders';
 
-     protected $fillable = ['user_id',"customer_name","shipping_address","telephone","grand_total","payment_total","status"];
+     protected $fillable = ['user_id',"customer_name","shipping_address","telephone","grand_total","payment_method","status"];
 
     const STATUS_PENDING = 0;
     const STATUS_PROCESS = 1;

@@ -153,14 +153,6 @@ class Controller extends BaseController
                 'price'=>$p->price
             ]);
 
-            //    OrderProduct::insert([
-            //             'order_id'=> $order->id,
-            //             'product_id'=>$p->id,
-            //             'qty'=>$p->cart_qty,
-            //             'price'=>$p->price
-            //         ]);
-
-
         }
         session()->forget('cart');
         // Mail::to("ntung9921@gmail.com")->send(new OrederCreate($order));
