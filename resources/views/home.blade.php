@@ -283,21 +283,21 @@
 									</div>
 									<div class="prd-bottom">
 
-										<a href="{{url("shopping/{$product->id}" class="social-info">
+										<a href="" class="social-info">
 											<span class="ti-bag"></span>
 											<p class="hover-text">add to bag</p>
 										</a>
-										<a href="{{url("shop/{$p->category_id}")}}" class="social-info">
+										<a href="" class="social-info">
 											<span class="lnr lnr-heart"></span>
-											<p class="hover-text">category more</p>
+											<p class="hover-text">Wishlist</p>
 										</a>
 										<a href="" class="social-info">
 											<span class="lnr lnr-sync"></span>
 											<p class="hover-text">compare</p>
 										</a>
-										<a href="{{url("productsdetails/{$p->id}")}}" class="social-info">
+										<a href="{{url("shop/{$p->category_id}")}}" class="social-info">
 											<span class="lnr lnr-move"></span>
-											<p class="hover-text">view more</p>
+											<p class="hover-text">category more</p>
 										</a>
 									</div>
 								</div>
