@@ -14,7 +14,7 @@
                 <form action="{{url("student/student/store")}}" method="post">
                     @csrf
                     <div class="form-group has-success">
-                        <label for="cc-name" class="control-label mb-1">student name</label>
+                        <label for="cc-name" class="control-label mb-1">students name</label>
                         <input id="cc-name" name="student_name" type="text" value="{{old("student_name")}}"
                                class="form-control cc-name @if($errors->has("student_name"))is-invalid @endif" >
                         <span class="help-block field-validation-valid"></span>
