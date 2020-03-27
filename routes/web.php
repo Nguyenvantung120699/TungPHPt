@@ -7,6 +7,10 @@ Route::prefix("admin")->middleware("checkAdmin")->group(function (){
 Route::prefix("cart")->middleware("checkUser")->group(function (){
     include_once("cart.php");
 });
+
+Route::prefix("student")->group(function (){
+    include_once("student.php");
+});
 /*
 |--------------------------------------------------------------------------
 | Web Routes

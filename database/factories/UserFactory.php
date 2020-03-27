@@ -27,28 +27,38 @@ $factory->define(User::class, function (Faker $faker) {
     ];
 });
 
-$factory->define(\App\Category::class,function(Faker $faker){
-    return[
-        'category_name' =>$faker->unique()->name
-    ];
-});
+// $factory->define(\App\Category::class,function(Faker $faker){
+//     return[
+//         'category_name' =>$faker->unique()->name
+//     ];
+// });
 
-$factory->define(\App\Products::class,function(Faker $faker){
-    return[
-        'product_name' =>$faker->unique()->name,
-        'product_desc' =>$faker->title,
-        'thumbnail' =>$faker->imageUrl(),
-        'gallery' =>$faker->imageUrl().",".$faker->imageUrl(),
-        'price' =>random_int(1,1000),
-        'quantity' =>random_int(1,100),
-        'category_id' =>random_int(1,3),
-        'brand_id' =>random_int(1,5),
-    ];
-});
+// $factory->define(\App\Products::class,function(Faker $faker){
+//     return[
+//         'product_name' =>$faker->unique()->name,
+//         'product_desc' =>$faker->title,
+//         'thumbnail' =>$faker->imageUrl(),
+//         'gallery' =>$faker->imageUrl().",".$faker->imageUrl(),
+//         'price' =>random_int(1,1000),
+//         'quantity' =>random_int(1,100),
+//         'category_id' =>random_int(1,3),
+//         'brand_id' =>random_int(1,5),
+//     ];
+// });
 
-$factory->define(\App\Brand::class,function(Faker $faker){
+// $factory->define(\App\Brand::class,function(Faker $faker){
+//     return[
+//          'brand_name' =>$faker->unique()->name
+//      ];
+// });
+
+$factory->define(\App\Student::class,function(Faker $faker){
     return[
-         'brand_name' =>$faker->unique()->name
-     ];
+        'student_name' =>$faker->unique()->student_name,
+        'age' =>$faker->unique()->age,
+        'telephone' =>$faker->unique()->telephone,
+        'classRoom' =>$faker->unique()->classRoom,
+        'total_mark' =>$faker->unique()->total_mark,
+    ];
 });
 
