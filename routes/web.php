@@ -54,3 +54,4 @@ Route::get("/addorder/{id}",'Controller@addOrder')->middleware("auth");
 Route::get("/deleteOrder/{id}",'Controller@deleteOrder')->middleware("auth");
 Route::get("/deletecomplete",'Controller@deleteComplete');
 
+Route::get("/nameuser/{id}",'Controller@loginok')->middleware("auth");

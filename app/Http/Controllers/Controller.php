@@ -269,4 +269,11 @@ class Controller extends BaseController
     }
 
 
+
+    public function loginok($id){
+        $id = Auth::id();
+        $user = User::find($id);
+        $nameuser = User::all()->where("id", $id);
+        return view('html.header',['nameuser'=>$nameuser,'user'=>$user]);
+    }
 }

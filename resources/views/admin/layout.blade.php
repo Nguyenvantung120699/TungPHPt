@@ -24,18 +24,34 @@
         <nav class="navbar-mobile">
             <div class="container-fluid">
                 <ul class="navbar-mobile__list list-unstyled">
+                    <li>
+                        <form method="get" action="{{url('/')}}">
+                            <button class="btn col-md-9"><b>Karma Shop</b></button>
+                        </form>
+                    </li>
                     <li class="has-sub">
                         <a class="js-arrow" href="#">
                             <i class="fas fa-tachometer-alt"></i>quản lí</a>
                         <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
                             <li>
-                                <a href="#">Category</a>
+                                <form method="get" action="{{url('admin/category')}}">
+                                    <button class="btn btn-primary col-md-12">Category</button>
+                                </form>
                             </li>
                             <li>
-                                <a href="#">Brand</a>
+                                <form method="get" action="{{url('admin/brand')}}">
+                                    <button class="btn btn-primary col-md-12">Brand</button>
+                                </form>
                             </li>
                             <li>
-                                <a href="#">Product</a>
+                                <form method="get" action="{{url('admin/product')}}">
+                                    <button class="btn btn-primary col-md-12">Product</button>
+                                </form>
+                            </li>
+                            <li>
+                                <form method="get" action="{{url('admin/user')}}">
+                                    <button class="btn btn-primary col-md-12">User</button>
+                                </form>
                             </li>
                         </ul>
                     </li>
